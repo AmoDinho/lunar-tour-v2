@@ -8,6 +8,7 @@ type Listing {
      listingName: String
      listingDescription: String
      listingType: String
+     listingLocation: String
      listingActivities: String
      specialType: String
      specialAmount: Int
