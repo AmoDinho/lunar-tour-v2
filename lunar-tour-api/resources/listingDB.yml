@@ -1,5 +1,5 @@
 Resources:
- StudentsTable:
+ ListingsDB:
     Type: AWS::DynamoDB::Table
     Properties:
       TableName: ${self:custom.ListingsDB}
