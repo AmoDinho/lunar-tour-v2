@@ -22,6 +22,8 @@ custom:
     includeModules: true
   serverless-offline:
     port: 4000
+  environment: ${file(env.yml):${self:custom.stage}, file(env.yml):default
+
 
 provider:
   name: aws
@@ -31,6 +33,7 @@ provider:
   environment:
     BookingsDB: ${self:custom.BookingsDB}
     ListingsDB: ${self:custom.ListingsDB}
+    
   iamRoleStatements:
     - Effect: Allow
       Action:
