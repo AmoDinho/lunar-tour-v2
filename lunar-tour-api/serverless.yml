@@ -72,3 +72,6 @@ functions:
           method: get 
           cors: true
           integration: lambda-proxy
+
+resources: 
+  - ${file(resources/listingDB.yml)}
