@@ -1,0 +1,38 @@
+Resources:
+ StudentsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: ${self:custom.ListingsDB}
+      AttributeDefinitions:
+        - AttributeName: listingId
+          AttributeType: S
+        - AttributeName: listingName
+          AttributeType: S
+        - AttributeName: listingDescription
+          AttributeType: S
+        - AttributeName: listingType
+          AttributeType: m
+        - AttributeName: listingActivities
+          AttributeType: m
+        - AttributeName: specialType
+          AttributeType: S
+        - AttributeName: specialAmount
+          AttributeType: S
+        - AttributeName: rating
+          AttributeType: n 
+        - AttributeName: guide
+          AttributeType: m
+        - AttributeName: price
+          AttributeType: s
+        - AttributeName: numberOfDays
+          AttributeType: n
+        - 
+      KeySchema:
+        - AttributeName: listingId
+          KeyType: HASH
+        - AttributeName: listingName
+          KeyType: Range
+      # Set the capacity based on the stage
+      ProvisionedThroughput:
+        ReadCapacityUnits: ${self:custom.tableThroughput}
+        WriteCapacityUnits: ${self:custom.tableThroughput}
