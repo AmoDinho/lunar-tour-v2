@@ -11,21 +11,21 @@ Resources:
         - AttributeName: listingDescription
           AttributeType: S
         - AttributeName: listingType
-          AttributeType: m
+          AttributeType: M
         - AttributeName: listingActivities
-          AttributeType: m
+          AttributeType: M
         - AttributeName: specialType
           AttributeType: S
         - AttributeName: specialAmount
           AttributeType: S
         - AttributeName: rating
-          AttributeType: n 
+          AttributeType: N
         - AttributeName: guide
-          AttributeType: m
+          AttributeType: M
         - AttributeName: price
           AttributeType: s
         - AttributeName: numberOfDays
-          AttributeType: n
+          AttributeType: N
         - 
       KeySchema:
         - AttributeName: listingId
