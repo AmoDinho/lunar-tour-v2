@@ -23,10 +23,10 @@ Resources:
         - AttributeName: guide
           AttributeType: M
         - AttributeName: price
-          AttributeType: s
+          AttributeType: S
         - AttributeName: numberOfDays
           AttributeType: N
-        - 
+        
       KeySchema:
         - AttributeName: listingId
           KeyType: HASH
