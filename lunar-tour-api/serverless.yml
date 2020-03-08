@@ -12,6 +12,7 @@ custom:
   stage: ${opt:stage, self:provider.stage}
   region: ${opt:region, self:provider.region}
   ListingsDB: ${self:custom.stage}-listings
+  BookingsDB: ${self:custom.stage}-bookings
   tableThroughputs:
     prod: 1
     default: 1
@@ -28,6 +29,7 @@ provider:
   stage: dev
   region: us-east-1
   environment:
+    BookingsDB: ${self:custom.BookingsDB}
     ListingsDB: ${self:custom.ListingsDB}
   iamRoleStatements:
     - Effect: Allow
@@ -47,6 +49,7 @@ provider:
 
       Resource:
         - "Fn::GetAtt": [ListingsDB, Arn]
+        - "Fn::GetAtt": [BookingsDB, Arn]
         
   # To load environment variables externally
   # rename env.example to env.yml and uncomment
@@ -75,3 +78,4 @@ functions:
 
 resources: 
   - ${file(resources/listingDB.yml)}
+  - ${file(resources/bookingDB.yml)}
