@@ -1,4 +1,6 @@
 # lunar-tour-v2
+
+![infra](lunar_tour.png)
 Lunar Tour is an app that allows you to book vacations to the moon.
 
 This is an opportunity to improve the orignal Lunar Tour frontend that was pluage by amatuer CSS architecture. 
