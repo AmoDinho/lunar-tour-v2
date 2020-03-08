@@ -11,9 +11,9 @@ Resources:
         - AttributeName: listingDescription
           AttributeType: S
         - AttributeName: listingType
-          AttributeType: M
+          AttributeType: S
         - AttributeName: listingActivities
-          AttributeType: M
+          AttributeType: S
         - AttributeName: specialType
           AttributeType: S
         - AttributeName: specialAmount
@@ -21,7 +21,7 @@ Resources:
         - AttributeName: rating
           AttributeType: N
         - AttributeName: guide
-          AttributeType: M
+          AttributeType: S
         - AttributeName: price
           AttributeType: S
         - AttributeName: numberOfDays
