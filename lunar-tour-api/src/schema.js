@@ -13,7 +13,7 @@ type Listing {
      specialType: String
      specialAmount: Int
      rating: Int
-     guide: Guide
+     guide: String
      price: String
      numberOfDays: Int
   
@@ -43,6 +43,14 @@ type Guide {
     passportNumber: String
     physioScore: String
   }
+
+  input InputCustomer {
+    name: String
+    Surname: String
+     country: String
+    passportNumber: String
+    physioScore: String
+  }
   input BookingInput {
    ID: String
       listingID: String
@@ -50,12 +58,12 @@ type Guide {
       size: Int
       bookingTotal: String
       customerEmail: String
-      customers: [Customer]
+      customers: InputCustomer
   
   }
   
   type Query {
-    getAllListings: [Listing!]!
+    getAllListings: [Listing]
     getAListing(ID: String!): Listing!
   }
   
