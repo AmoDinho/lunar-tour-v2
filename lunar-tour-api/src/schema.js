@@ -20,6 +20,11 @@ type Listing {
   }
   
 
+type Guide {
+  Name: String
+  Bio: String
+}
+
   
   type Booking {
       ID: String
@@ -31,7 +36,13 @@ type Listing {
       customers: [Customer]
   
   }
-  
+  type Customer {
+    name: String
+    Surname: String
+     country: String
+    passportNumber: String
+    physioScore: String
+  }
   input BookingInput {
    ID: String
       listingID: String
@@ -54,6 +65,6 @@ type Listing {
   }
   
 
-`
+`;
 
-export { schema }
+export { schema };
