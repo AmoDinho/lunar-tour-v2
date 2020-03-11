@@ -7,10 +7,10 @@ export const getAllListings = async (args, context) => {
   console.log("table", params);
 
   try {
-    const listings = await dynamoDBLib.call("scan", params);
-    console.log("eee", listings);
+    const result = await dynamoDBLib.call("scan", params);
+    console.log("eee", result.Items);
 
-    return listings.Item;
+    // return result;
   } catch (e) {
     return e.message;
   }
