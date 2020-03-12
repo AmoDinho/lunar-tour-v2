@@ -8,8 +8,8 @@ export const getAllListings = async (args, context) => {
 
   try {
     const result = await dynamoDBLib.call("scan", params);
-    console.log("eee", result.Items);
-
+    console.log("eee", result);
+    return result.Items;
     // return result;
   } catch (e) {
     return e.message;
