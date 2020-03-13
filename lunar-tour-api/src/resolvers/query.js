@@ -3,7 +3,7 @@ import * as dynamoDBLib from "../../libs/dynamodb-lib";
 export const getAllListings = async (args, context) => {
   const params = {
     TableName: process.env.ListingsDB,
-    FilterExpression: "attribute_exists(listingName)"
+    ConsistentRead: "false"
   };
   console.log("table", params);
 
