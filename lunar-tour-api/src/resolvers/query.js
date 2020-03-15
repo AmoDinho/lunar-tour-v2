@@ -37,3 +37,8 @@ export const getAllListings = async (args, context) => {
     return e.message;
   }
 };
+
+
+export const getAListing = async (args, context) => {
+  return null
+}
