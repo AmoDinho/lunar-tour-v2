@@ -1,6 +1,25 @@
 import { v1 as uuidv1 } from "uuid"
 import * as dynamoDBLib from "../../libs/dynamodb-lib";
 
+const getPrices = async () => {
+    const params = {
+        TableName: process.env.ListingsDB,
+        FilterExpression: "attribute_exists(#20970)",
+        ExpressionAttributeNames: {
+            "#20970": "price"
+        }
+
+
+    }
+    try {
+        const listings = await dynamoDBLib.call("scan", params)
+        return listings
+    } catch (e) {
+        return e
+    }
+
+
+}
 export const makeABooking = async (args, context) => {
     /*
     How to get all the listings?
@@ -15,7 +34,7 @@ export const makeABooking = async (args, context) => {
     := get all the listings/ only get their prices and then filter only if the price has the relveant listing ID
     */
 
-
+    console.log('LISTINGS', await getPrices())
     const params = {
         TableName: process.env.BookingsDB,
         Item: {
