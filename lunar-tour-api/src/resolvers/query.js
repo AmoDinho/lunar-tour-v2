@@ -9,9 +9,9 @@ export const getAllListings = async (args, context) => {
 
   try {
     const result = await dynamoDBLib.call("scan", params);
-    console.log("eee", result.Items.map(i => i.listingType.map(m => m)));
+    console.log("eee", result.Items.map(i => i.guide));
     return result.Items.map(i => ({
-      ID: i.listingId,
+      listingId: i.listingId,
       coverPhoto: i.coverPhoto,
       listingName: i.listingName,
       listingDescription: i.listingDescription,
@@ -25,7 +25,10 @@ export const getAllListings = async (args, context) => {
       specialType: i.specialType,
       specialAmount: i.specialAmount,
       rating: i.rating,
-      guide: i.guide,
+      guide: {
+        Name: i.guide.name,
+        Bio: i.guide.bio
+      },
       price: i.price,
       numberOfDays: i.numberOfDays
     }))

@@ -19,7 +19,7 @@ type Listing {
      specialType: String
      specialAmount: Int
      rating: Int
-     guide: String
+     guide: Guide
      price: String
      numberOfDays: Int
   
