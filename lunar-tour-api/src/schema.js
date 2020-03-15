@@ -78,7 +78,7 @@ type Guide {
 
       size: Int,
       customerEmail: String,
-      customers: [Customer]
+      customers: [InputCustomer]
     ): Boolean
   
   }
