@@ -1,14 +1,6 @@
-/*
+import uuid from "uuid"
+import * as dynamoDBLib from "../../libs/dynamodb-lib";
 
-ADD YOUR MUTATION HERE:
-
-export const addCars = async (args, context) => {
-    
-
-}
-
-
-*/
 export const makeABooking = async (args, context) => {
     return null
 }
