@@ -63,7 +63,7 @@ type Guide {
   }
   
   type Query {
-    getAllListings: Listing
+    getAllListings: [Listing]
     getAListing(ID: String!): Listing!
   }
   
