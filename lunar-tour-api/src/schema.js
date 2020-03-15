@@ -4,6 +4,9 @@ type ListingType {
   name: String
 }
 
+type ListingActivities {
+  name: String
+}
 
 type Listing {
      ID: Int
@@ -12,7 +15,7 @@ type Listing {
      listingDescription: String
      listingType: [ListingType]
      listingLocation: String
-     listingActivities: String
+     listingActivities: [ListingActivities]
      specialType: String
      specialAmount: Int
      rating: Int

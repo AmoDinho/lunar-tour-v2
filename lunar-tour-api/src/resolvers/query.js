@@ -19,7 +19,9 @@ export const getAllListings = async (args, context) => {
         name: m
       })),
       listingLocation: i.listingLocation,
-      listingActivities: i.listingActivities,
+      listingActivities: i.listingActivities.map(k => ({
+        name: k
+      })),
       specialType: i.specialType,
       specialAmount: i.specialAmount,
       rating: i.rating,
