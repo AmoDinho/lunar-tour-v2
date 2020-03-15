@@ -1,3 +1,5 @@
+org: amodinho
+app: lunar-tour-api
 # NOTE: update this with your service name
 service: lunar-tour-api-2
 
@@ -30,7 +32,6 @@ provider:
   runtime: nodejs10.x
   stage: dev
   region: us-east-1
-  profile: personalAccount
   environment:
     BookingsDB: ${self:custom.BookingsDB}
     ListingsDB: ${self:custom.ListingsDB}
