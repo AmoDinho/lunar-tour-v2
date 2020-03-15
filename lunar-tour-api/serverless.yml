@@ -30,6 +30,7 @@ provider:
   runtime: nodejs10.x
   stage: dev
   region: us-east-1
+  profile: personalAccount
   environment:
     BookingsDB: ${self:custom.BookingsDB}
     ListingsDB: ${self:custom.ListingsDB}
@@ -49,11 +50,10 @@ provider:
         - dynamodb:DescribeStream
         - dynamodb:ListStream
 
-
       Resource:
         - "Fn::GetAtt": [ListingsDB, Arn]
         - "Fn::GetAtt": [BookingsDB, Arn]
-        
+
   # To load environment variables externally
   # rename env.example to env.yml and uncomment
   # the following line. Also, make sure to not
@@ -69,16 +69,16 @@ functions:
     events:
       - http:
           path: graphql
-          method: post 
-          cors: true 
+          method: post
+          cors: true
           integration: lambda-proxy
 
       - http:
           path: graphql
-          method: get 
+          method: get
           cors: true
           integration: lambda-proxy
 
-resources: 
-  - ${file(resources/listingDB.yml)}
+resources:
+  - ${file(resources/listing-db.yml)}
   - ${file(resources/bookingDB.yml)}
