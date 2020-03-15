@@ -1,5 +1,5 @@
 # NOTE: update this with your service name
-service: lunar-tour-api
+service: lunar-tour-api-2
 
 # Use the serverless-webpack plugin to transpile ES6
 plugins:
