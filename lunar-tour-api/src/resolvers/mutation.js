@@ -2,15 +2,7 @@ import { v1 as uuidv1 } from "uuid"
 import * as dynamoDBLib from "../../libs/dynamodb-lib";
 
 export const makeABooking = async (args, context) => {
-    const InputCustomer = {
-        name: args.name,
-        Surname: args.Surname,
-        country: args.country,
-        passportNumber: args.passportNumber,
-        physioScore: args.physioScore
-    }
 
-    console.log('VVV', args.customers)
     const params = {
         TableName: process.env.BookingsDB,
         Item: {
