@@ -1,5 +1,8 @@
 const schema = `
 
+type ListingType {
+  name: String
+}
 
 
 type Listing {
@@ -7,7 +10,7 @@ type Listing {
      coverPhoto: String
      listingName: String
      listingDescription: String
-     listingType: String
+     listingType: [ListingType]
      listingLocation: String
      listingActivities: String
      specialType: String
