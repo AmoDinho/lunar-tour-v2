@@ -30,7 +30,7 @@ provider:
   runtime: nodejs10.x
   stage: dev
   region: us-east-1
-  profile: personalAccount
+  profile: personalProfile
   environment:
     BookingsDB: ${self:custom.BookingsDB}
     ListingsDB: ${self:custom.ListingsDB}
