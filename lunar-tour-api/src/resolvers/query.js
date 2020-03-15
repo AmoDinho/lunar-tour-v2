@@ -40,5 +40,24 @@ export const getAllListings = async (args, context) => {
 
 
 export const getAListing = async (args, context) => {
-  return null
+  const params = {
+    TableName: process.env.ListingsDB,
+    FilterExpression: "listingId = :listingId",
+    ExpressionAttributeValues: {
+      ":listingId": args.listingId
+    }
+  };
+
+  try {
+    const listing = await dynamoDBLib.call("scan", params)
+    console.log(listing.Items[0])
+    return {
+      listingName: listing.Items[0].listingName
+
+    }
+
+  } catch (e) {
+    return e
+  }
+
 }

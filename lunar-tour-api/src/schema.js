@@ -9,7 +9,7 @@ type ListingActivities {
 }
 
 type Listing {
-     ID: Int
+     listingId: String
      coverPhoto: String
      listingName: String
      listingDescription: String
@@ -70,7 +70,7 @@ type Guide {
   
   type Query {
     getAllListings: [Listing]
-    getAListing(ID: String!): Listing!
+    getAListing(listingId: String!): Listing!
   }
   
   type Mutation {
