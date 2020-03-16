@@ -74,7 +74,12 @@ type Guide {
   }
   
   type Mutation {
-    makeABooking(input: BookingInput): Boolean
+    makeABooking(
+
+      size: Int,
+      customerEmail: String,
+      customers: [InputCustomer]
+    ): Boolean
   
   }
   

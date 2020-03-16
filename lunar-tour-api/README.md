@@ -88,3 +88,38 @@ type Mutation {
 
 
 
+## How to execute mutation
+
+Mutation document:
+```
+mutation makeABooking($customerEmail: String!,$size:Int!,$input: [InputCustomer]){
+  makeABooking(customerEmail:$customerEmail,size:$size , customers: $input)
+  
+}
+```
+
+Query variables:
+
+```
+
+{
+  "customerEmail": "test.com",
+  "size": 4,
+  "input": [
+    {
+    "name":"bob",
+    "Surname": "wheezy",
+    "physioScore": "340",
+    "passportNumber": "345545454",
+    "country": "spain"
+  },{
+    "name":"yolande",
+    "Surname": "hendler",
+    "physioScore": "340",
+    "passportNumber": "345545454",
+    "country": "spain"
+  }
+  
+  ]
+}
+```
