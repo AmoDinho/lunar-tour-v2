@@ -1,4 +1,5 @@
 import { v1 as uuidv1 } from "uuid";
+import stripePackage from "stripe";
 import * as dynamoDBLib from "../../libs/dynamodb-lib";
 /*
 To-Do
@@ -41,6 +42,8 @@ export const makeABooking = async (args, context) => {
 
   const listingObject = await getPrices();
   console.log("LISTINGS", listingObject);
+const strip
+  await strip
   const params = {
     TableName: process.env.BookingsDB,
     Item: {
