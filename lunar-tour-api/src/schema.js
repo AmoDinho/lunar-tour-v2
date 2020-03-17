@@ -75,7 +75,7 @@ type Guide {
   
   type Mutation {
     makeABooking(
-
+      listingId: String
       size: Int,
       customerEmail: String,
       customers: [InputCustomer]

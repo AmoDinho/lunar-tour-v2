@@ -1,27 +1,8 @@
-import { v1 as uuidv1 } from "uuid"
+import { v1 as uuidv1 } from "uuid";
 import * as dynamoDBLib from "../../libs/dynamodb-lib";
 
-const getPrices = async () => {
-    const params = {
-        TableName: process.env.ListingsDB,
-        FilterExpression: "attribute_exists(#20970)",
-        ExpressionAttributeNames: {
-            "#20970": "price"
-        }
-
-
-    }
-    try {
-        const listings = await dynamoDBLib.call("scan", params)
-        return listings
-    } catch (e) {
-        return e
-    }
-
-
-}
 export const makeABooking = async (args, context) => {
-    /*
+  /*
     How to get all the listings?
     
     Get the listing ID
@@ -34,26 +15,42 @@ export const makeABooking = async (args, context) => {
     := get all the listings/ only get their prices and then filter only if the price has the relveant listing ID
     */
 
-    console.log('LISTINGS', await getPrices())
+  const getPrices = async () => {
     const params = {
-        TableName: process.env.BookingsDB,
-        Item: {
-            bookingId: uuidv1(),
-            listingId: "a114dded-ddef-4052-a106-bb18b94e6b51",
-            bookingDate: Date.now(),
-            size: args.size,
-            bookingTotal: 33 * args.size,
-            customerEmail: args.customerEmail,
-            customers: args.customers
-        }
-
-    }
-
+      TableName: process.env.ListingsDB,
+      KeyConditionExpression: "listingId = :listingId",
+      ExpressionAttributeValues: {
+        ":listingId": args.listingId
+      }
+    };
     try {
-        await dynamoDBLib.call("put", params)
-        return true
+      const listings = await dynamoDBLib.call("query", params);
+      return listings;
     } catch (e) {
-        return e
+      return e;
     }
+  };
 
-}
+  const listingObject = await getPrices();
+  console.log("LISTINGS", listingObject);
+  const params = {
+    TableName: process.env.BookingsDB,
+    Item: {
+      bookingId: uuidv1(),
+      listingId: args.listingId,
+      bookingDate: Date.now(),
+      size: args.size,
+      bookingTotal: parseInt(listingObject.Items[0].price) * args.size,
+      customerEmail: args.customerEmail,
+      customers: args.customers,
+      createdTimestamp: Date.now()
+    }
+  };
+
+  try {
+    await dynamoDBLib.call("put", params);
+    return true;
+  } catch (e) {
+    return e;
+  }
+};

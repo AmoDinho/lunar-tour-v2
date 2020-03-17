@@ -1,4 +1,3 @@
-
 service: lunar-tour-api-2
 
 # Use the serverless-webpack plugin to transpile ES6
@@ -24,16 +23,16 @@ custom:
     port: 4000
   environment: ${file(env.yml):${self:custom.stage}, file(env.yml):default
 
-
 provider:
   name: aws
   runtime: nodejs10.x
   stage: dev
   region: us-east-1
+  profile: personalAccount
   environment:
     BookingsDB: ${self:custom.BookingsDB}
     ListingsDB: ${self:custom.ListingsDB}
-    
+
   iamRoleStatements:
     - Effect: Allow
       Action:
