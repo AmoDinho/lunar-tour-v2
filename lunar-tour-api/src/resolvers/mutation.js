@@ -1,6 +1,14 @@
 import { v1 as uuidv1 } from "uuid";
 import * as dynamoDBLib from "../../libs/dynamodb-lib";
+/*
+To-Do
 
+- Setup stripe
+- Create tickets
+-  Setup transactional email
+
+
+*/
 export const makeABooking = async (args, context) => {
   /*
     How to get all the listings?
