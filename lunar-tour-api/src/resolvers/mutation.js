@@ -63,7 +63,7 @@ export const makeABooking = async (args, context) => {
     //kick off the mailer to the customers email
     // await transport
     //   .sendEmail({
-    //     From: "noreply@burnermail.io",
+    //     From: "info@zansi.co.za",
     //     To: params.Item.customerEmail,
     //     Subject: `Your order confirmation for ${listingName}`,
     //     TextBody: mailTemp(
