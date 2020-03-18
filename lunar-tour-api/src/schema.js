@@ -78,6 +78,7 @@ type Guide {
     makeABooking(
       listingId: String
       size: Int,
+      bookingDate: String,
       customerEmail: String,
       customers: [InputCustomer]
     ): Booking
