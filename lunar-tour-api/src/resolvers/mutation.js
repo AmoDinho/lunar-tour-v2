@@ -4,8 +4,7 @@ import * as dynamoDBLib from "../../libs/dynamodb-lib";
 /*
 To-Do
 
-- Setup stripe
-- Create tickets
+
 -  Setup transactional email
 
 

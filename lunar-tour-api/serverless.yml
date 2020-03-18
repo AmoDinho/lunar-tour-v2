@@ -33,6 +33,7 @@ provider:
     BookingsDB: ${self:custom.BookingsDB}
     ListingsDB: ${self:custom.ListingsDB}
     stripeSecretKey: ${file(./env.yml):local.STRIPE_SECRET_KEY}
+    POST_MARK_API_KEY: ${file(./env.yml):local.POST_MARK_API_KEY}
 
   iamRoleStatements:
     - Effect: Allow
