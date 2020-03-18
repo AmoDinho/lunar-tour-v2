@@ -32,7 +32,7 @@ provider:
   environment:
     BookingsDB: ${self:custom.BookingsDB}
     ListingsDB: ${self:custom.ListingsDB}
-    stripeSecretKey: ${file(./env.yml):STRIPE_SECRET_KEY}
+    stripeSecretKey: ${file(./env.yml):local.STRIPE_SECRET_KEY}
 
   iamRoleStatements:
     - Effect: Allow

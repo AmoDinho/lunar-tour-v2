@@ -47,7 +47,7 @@ export const makeABooking = async (args, context) => {
   const stripe = stripePackage(process.env.stripeSecretKey);
   const stripeResult = await stripe.charges.create({
     source,
-    bookingCharge,
+    amount: bookingCharge,
     description,
     currency: "usd"
   });
@@ -64,7 +64,9 @@ export const makeABooking = async (args, context) => {
       bookingTotal: bookingCharge,
       customerEmail: args.customerEmail,
       customers: args.customers,
-      createdTimestamp: Date.now()
+      createdTimestamp: Date.now(),
+      chargeReciept: stripeResult.receipr_url,
+      paymentDetails: stripeResult.payment_method_details
     }
   };
 
