@@ -1,6 +1,7 @@
 import { v1 as uuidv1 } from "uuid";
 import stripePackage from "stripe";
 import * as dynamoDBLib from "../../libs/dynamodb-lib";
+import { transport, mailTemp } from "../../libs/mail";
 /*
 To-Do
 
@@ -41,6 +42,7 @@ export const makeABooking = async (args, context) => {
 
   const listingObject = await getPrices();
   const bookingCharge = parseInt(listingObject.Items[0].price) * args.size;
+  const listingName = listingObject.listingName;
   const source = "tok_visa";
   const description = `Charge for booking of listing ${args.listingId}`;
   const stripe = stripePackage(process.env.stripeSecretKey);
@@ -69,6 +71,18 @@ export const makeABooking = async (args, context) => {
 
   try {
     await dynamoDBLib.call("put", params);
+
+    await transport
+      .sendEmail({
+        from: "noreply@burnermail.io",
+        to: args.customerEmail,
+        subject: `Your order confirmation for ${listingName}`,
+        TextBody: mailTemp({
+          listingName: ` ${listingName}`,
+          text: `${params.Item.chargeReciept}`
+        })
+      })
+      .then(res => console.log(res));
     return true;
   } catch (e) {
     return e;
