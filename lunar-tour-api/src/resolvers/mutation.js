@@ -52,8 +52,6 @@ export const makeABooking = async (args, context) => {
     currency: "usd"
   });
 
-  console.log("Stripe result", stripeResult);
-
   const params = {
     TableName: process.env.BookingsDB,
     Item: {
@@ -65,7 +63,7 @@ export const makeABooking = async (args, context) => {
       customerEmail: args.customerEmail,
       customers: args.customers,
       createdTimestamp: Date.now(),
-      chargeReciept: stripeResult.receipr_url,
+      chargeReciept: stripeResult.receipt_url,
       paymentDetails: stripeResult.payment_method_details
     }
   };
