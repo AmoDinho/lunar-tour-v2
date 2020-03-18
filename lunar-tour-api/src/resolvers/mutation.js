@@ -45,7 +45,7 @@ export const makeABooking = async (args, context) => {
     Item: {
       bookingId: uuidv1(),
       listingId: args.listingId,
-      bookingDate: Date.now(),
+      bookingDate: args.bookingDate,
       size: args.size,
       bookingTotal: bookingCharge,
       customerEmail: args.customerEmail,
