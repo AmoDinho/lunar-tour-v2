@@ -40,6 +40,7 @@ type Guide {
       bookingTotal: String
       customerEmail: String
       customers: [Customer]
+      chargeReciept: String
   
   }
   type Customer {
@@ -79,7 +80,7 @@ type Guide {
       size: Int,
       customerEmail: String,
       customers: [InputCustomer]
-    ): Boolean
+    ): Booking
   
   }
   

@@ -61,18 +61,33 @@ export const makeABooking = async (args, context) => {
     await dynamoDBLib.call("put", params);
 
     //kick off the mailer to the customers email
-    await transport
-      .sendEmail({
-        From: "noreply@burnermail.io",
-        To: params.Item.customerEmail,
-        Subject: `Your order confirmation for ${listingName}`,
-        TextBody: mailTemp(
-          `You have successfully booked a trip for ${listingName}!  Here is your booking refernce: ${params.Item.bookingId} Here is a link to your reciept 📡: ${params.Item.chargeReciept}`
-        )
-      })
-      .then(res => console.log(res));
+    // await transport
+    //   .sendEmail({
+    //     From: "noreply@burnermail.io",
+    //     To: params.Item.customerEmail,
+    //     Subject: `Your order confirmation for ${listingName}`,
+    //     TextBody: mailTemp(
+    //       `You have successfully booked a trip for ${listingName}!  Here is your booking refernce: ${params.Item.bookingId} Here is a link to your reciept 📡: ${params.Item.chargeReciept}`
+    //     )
+    //   })
+    //   .then(res => console.log(res));
     //return true to let us know that the mutation was successfull
-    return true;
+    return {
+      bookingId: params.Item.bookingId,
+      listingId: params.Item.listingId,
+      bookingDate: params.Item.bookingDate,
+      size: params.Item.size,
+      bookingTotal: params.Item.bookingTotal,
+      customerEmail: params.Item.customerEmail,
+      customers: params.Item.customers.map(c => ({
+        name: c.name,
+        Surname: c.Surname,
+        country: c.country,
+        passportNumber: c.passportNumber,
+        physioScore: c.physioScore
+      })),
+      chargeReciept: params.Item.chargeReciept
+    };
   } catch (e) {
     return e;
   }
