@@ -58,7 +58,7 @@ type Guide {
     physioScore: String
   }
   input BookingInput {
-   ID: String
+      ID: String
       listingID: String
       bookingDate: String
       size: Int

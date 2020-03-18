@@ -2,28 +2,10 @@ import { v1 as uuidv1 } from "uuid";
 import stripePackage from "stripe";
 import * as dynamoDBLib from "../../libs/dynamodb-lib";
 import { transport, mailTemp } from "../../libs/mail";
-/*
-To-Do
 
-
--  Setup transactional email
-
-
-*/
 export const makeABooking = async (args, context) => {
-  /*
-    How to get all the listings?
-    
-    Get the listing ID
-    Query the db for the listing
-    get it's price
-    
-    options? 
-    
-    := do a scan for a listing
-    := get all the listings/ only get their prices and then filter only if the price has the relveant listing ID
-    */
-
+  //Get the listing that the user selected
+  //from the client
   const getPrices = async () => {
     const params = {
       TableName: process.env.ListingsDB,
@@ -40,19 +22,24 @@ export const makeABooking = async (args, context) => {
     }
   };
 
+  //set the listing to a variables so we can resuse it
   const listingObject = await getPrices();
+  //caLCULATE THE amount to be charged to the
+  //customers card
   const bookingCharge = parseInt(listingObject.Items[0].price) * args.size;
+  //get the name of the listing
   const listingName = listingObject.listingName;
-  const source = "tok_visa";
-  const description = `Charge for booking of listing ${args.listingId}`;
+  //create an instance of the stripe lib
   const stripe = stripePackage(process.env.stripeSecretKey);
+  //charge the users card
   const stripeResult = await stripe.charges.create({
-    source,
+    source: "tok_visa",
     amount: bookingCharge,
-    description,
+    description: `Charge for booking of listing ${args.listingId}`,
     currency: "usd"
   });
 
+  //create the booking in the table
   const params = {
     TableName: process.env.BookingsDB,
     Item: {
@@ -70,19 +57,21 @@ export const makeABooking = async (args, context) => {
   };
 
   try {
+    //insert the booking into the table
     await dynamoDBLib.call("put", params);
 
+    //kick off the mailer to the customers email
     await transport
       .sendEmail({
-        from: "noreply@burnermail.io",
-        to: args.customerEmail,
-        subject: `Your order confirmation for ${listingName}`,
-        TextBody: mailTemp({
-          listingName: ` ${listingName}`,
-          text: `${params.Item.chargeReciept}`
-        })
+        From: "noreply@burnermail.io",
+        To: params.Item.customerEmail,
+        Subject: `Your order confirmation for ${listingName}`,
+        TextBody: mailTemp(
+          `You have successfully booked a trip for ${listingName}!  Here is your booking refernce: ${params.Item.bookingId} Here is a link to your reciept 📡: ${params.Item.chargeReciept}`
+        )
       })
       .then(res => console.log(res));
+    //return true to let us know that the mutation was successfull
     return true;
   } catch (e) {
     return e;
