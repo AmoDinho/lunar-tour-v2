@@ -41,9 +41,19 @@ export const makeABooking = async (args, context) => {
   };
 
   const listingObject = await getPrices();
-  console.log("LISTINGS", listingObject);
-const strip
-  await strip
+  const bookingCharge = parseInt(listingObject.Items[0].price) * args.size;
+  const source = "tok_visa";
+  const description = `Charge for booking of listing ${args.listingId}`;
+  const stripe = stripePackage(process.env.stripeSecretKey);
+  const stripeResult = await stripe.charges.create({
+    source,
+    bookingCharge,
+    description,
+    currency: "usd"
+  });
+
+  console.log("Stripe result", stripeResult);
+
   const params = {
     TableName: process.env.BookingsDB,
     Item: {
@@ -51,7 +61,7 @@ const strip
       listingId: args.listingId,
       bookingDate: Date.now(),
       size: args.size,
-      bookingTotal: parseInt(listingObject.Items[0].price) * args.size,
+      bookingTotal: bookingCharge,
       customerEmail: args.customerEmail,
       customers: args.customers,
       createdTimestamp: Date.now()

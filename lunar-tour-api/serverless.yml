@@ -21,7 +21,7 @@ custom:
     includeModules: true
   serverless-offline:
     port: 4000
-  environment: ${file(env.yml):${self:custom.stage}, file(env.yml):default
+  environment: ${file(./env.yml):${self:custom.stage}, file(./env.yml):default
 
 provider:
   name: aws
@@ -32,7 +32,7 @@ provider:
   environment:
     BookingsDB: ${self:custom.BookingsDB}
     ListingsDB: ${self:custom.ListingsDB}
-    stripeSecretKey: ${env:STRIPE_SECRET_KEY}
+    stripeSecretKey: ${file(./env.yml):STRIPE_SECRET_KEY}
 
   iamRoleStatements:
     - Effect: Allow
