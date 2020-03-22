@@ -1,9 +1,13 @@
 <template>
-  <div>
-    <h1>{{ listingTitle }}</h1>
-    <h1>{{ listingLocation }}</h1>
-    <h1>{{ price }}</h1>
-    <h1>{{ rating }}</h1>
+  <div class=" rounded-lg w-2/5 h-64">
+    <img :src="coverPhoto" class="w-1/2" />
+    <div class="flex flex-row">
+      <p>{{ listingTitle }}</p>
+      <p>{{ listingLocation }}</p>
+    </div>
+
+    <p>{{ price }}</p>
+    <p>{{ rating }}</p>
   </div>
 </template>
 <script>
@@ -13,7 +17,8 @@ export default {
     listingTitle: String,
     listingLocation: String,
     price: String,
-    rating: String
+    rating: String,
+    coverPhoto: String
   }
 };
 </script>

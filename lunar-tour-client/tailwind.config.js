@@ -242,7 +242,8 @@ module.exports = {
     },
     zIndex: {
       "100": 100
-    }
+    },
+    gridTemplateColumns: {}
   },
   variants: {
     accessibility: ["responsive", "focus"],

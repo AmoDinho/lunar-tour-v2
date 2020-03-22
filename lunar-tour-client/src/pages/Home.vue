@@ -6,13 +6,15 @@
         <div v-if="loading">loading...</div>
         <div v-if="error">error...</div>
 
-        <div v-else-if="data">
+        <div v-else-if="data" class="grid p-10">
           <div v-for="listing of data.getAllListings" :key="listing.listingId">
             <TourCard
               :listingTitle="listing.listingName"
               :listingLocation="listing.listingLocation"
               :price="listing.price"
               :rating="listing.rating"
+              :coverPhoto="listing.coverPhoto"
+              class="mt-4"
             />
           </div>
         </div>
@@ -31,3 +33,9 @@ export default {
   }
 };
 </script>
+<style>
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+</style>
