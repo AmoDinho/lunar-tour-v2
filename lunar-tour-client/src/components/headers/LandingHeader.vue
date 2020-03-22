@@ -1,6 +1,8 @@
 <template>
-  <div class="image">
-    <h1 class="text-red">book lunar tours</h1>
+  <div class="image text-center">
+    <h1 class="text-white font-display text-5xl">
+      Book Vacations to Different Lunar Destinations
+    </h1>
   </div>
 </template>
 <script>
@@ -10,10 +12,11 @@ export default {
 </script>
 <style>
 .image {
-  background: url(https://sonorangirl.github.io/Earth-Quotes/img/google-earth-view-South-Iceland3.jpg)
+  background: url(https://moon.nasa.gov/system/resources/detail_files/187_detail_as11-44-6551_orig.jpg)
     no-repeat center center;
   background-size: cover;
   height: 570px;
-  margin-top: -20px;
+  margin-top: -85px;
+  background-color: #490d40;
 }
 </style>
