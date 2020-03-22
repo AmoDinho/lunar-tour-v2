@@ -7,12 +7,13 @@
         <div v-if="error">error...</div>
 
         <div v-else-if="data">
-          <div
-            class="text-red"
-            v-for="listing of data.getAllListings"
-            :key="listing.listingId"
-          >
-            {{ listing.listingName }}
+          <div v-for="listing of data.getAllListings" :key="listing.listingId">
+            <TourCard
+              :listingTitle="listing.listingName"
+              :listingLocation="listing.listingLocation"
+              :price="listing.price"
+              :rating="listing.rating"
+            />
           </div>
         </div>
       </template>
@@ -21,12 +22,12 @@
 </template>
 <script>
 import LandingHeader from "../components/headers/LandingHeader.vue";
-//import TourCard from "../components/cards/TourCard";
+import TourCard from "../components/cards/TourCard";
 export default {
   name: "Home",
   components: {
-    LandingHeader
-    //TourCard
+    LandingHeader,
+    TourCard
   }
 };
 </script>
