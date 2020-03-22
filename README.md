@@ -1,19 +1,16 @@
-# lunar-tour-v2
+# lunar-tour-v2 [WIP 🚁] 
 
 ![infra](lunar_tour.png)
 Lunar Tour is an app that allows you to book vacations to the moon.
 
+Backend API 🎮:
 [Playground link](https://puh82kjrl5.execute-api.us-east-1.amazonaws.com/dev/graphql)
 
-This is an opportunity to improve the orignal Lunar Tour frontend that was pluage by amatuer CSS architecture. 
+Vue Frontend Client 💾:
+[Link](https://lunar-tour-vue.netlify.com)
 
-The goal of this project is simple:
+React one coming soon!
 
-- [ ] Create A design System in [Figma](https://www.figma.com/file/WkRlpYw5RsHoWYvN8KrZUNag/Lunar-Tour-App)
-- [ ] Use the design system to make compontent in React
-- [ ] Create React Front-End
-- [ ] Create a Backend that stores data on Users and Trips. Also a bit of Auth. 
+## Goals 🌠
 
-However before writing a single line of code there are a few things you need to do:
-
-- [ ] Understand how to implement accessability
+This is repo will be turned into a course! 
