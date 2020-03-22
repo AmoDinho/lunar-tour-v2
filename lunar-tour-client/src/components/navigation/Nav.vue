@@ -1,7 +1,13 @@
 <template>
   <nav
     class="border-top flex items-center justify-between flex-wrap bg-transparent p-6"
-  ></nav>
+  >
+    <div class="flex items-center flex-no-shrink text">
+      <h1 class="font-display text-red">
+        <a class="no-underline text-red" href="/">Lunar</a>
+      </h1>
+    </div>
+  </nav>
 </template>
 <script>
 export default {
