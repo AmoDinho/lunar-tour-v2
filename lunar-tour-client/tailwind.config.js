@@ -312,7 +312,7 @@ module.exports = {
     function({ addComponents }) {
       const border = {
         ".border-top": {
-          borderTop: "#4ECA5D  8px solid"
+          borderTop: "#F45B69  8px solid"
         }
       };
       const borderBottom = {

@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="border-top flex items-center justify-between flex-wrap bg-green-darker p-6"
+    class="border-top flex items-center justify-between flex-wrap bg-transparent p-6"
   ></nav>
 </template>
 <script>
