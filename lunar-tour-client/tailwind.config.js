@@ -50,8 +50,7 @@ module.exports = {
       xl: [{ min: "1500px" }]
     },
     fontFamily: {
-      display: ["Paytone One"],
-      body: ["Poppins"]
+      display: ["Saira"]
     },
     fontSize: {
       xs: ".75rem", // 12px
