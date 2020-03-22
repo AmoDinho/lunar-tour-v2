@@ -1,4 +1,3 @@
-
 service: lunar-tour-api-2
 
 # Use the serverless-webpack plugin to transpile ES6
@@ -22,18 +21,20 @@ custom:
     includeModules: true
   serverless-offline:
     port: 4000
-  environment: ${file(env.yml):${self:custom.stage}, file(env.yml):default
-
+  environment: ${file(./env.yml):${self:custom.stage}, file(./env.yml):default
 
 provider:
   name: aws
   runtime: nodejs10.x
   stage: dev
   region: us-east-1
+  profile: personalAccount
   environment:
     BookingsDB: ${self:custom.BookingsDB}
     ListingsDB: ${self:custom.ListingsDB}
-    
+    stripeSecretKey: ${file(./env.yml):local.STRIPE_SECRET_KEY}
+    POST_MARK_API_KEY: ${file(./env.yml):local.POST_MARK_API_KEY}
+
   iamRoleStatements:
     - Effect: Allow
       Action:

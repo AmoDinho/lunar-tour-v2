@@ -3,6 +3,8 @@
 ![infra](lunar_tour.png)
 Lunar Tour is an app that allows you to book vacations to the moon.
 
+[Playground link](https://puh82kjrl5.execute-api.us-east-1.amazonaws.com/dev/graphql)
+
 This is an opportunity to improve the orignal Lunar Tour frontend that was pluage by amatuer CSS architecture. 
 
 The goal of this project is simple:

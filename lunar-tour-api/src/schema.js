@@ -40,6 +40,7 @@ type Guide {
       bookingTotal: String
       customerEmail: String
       customers: [Customer]
+      chargeReciept: String
   
   }
   type Customer {
@@ -58,7 +59,7 @@ type Guide {
     physioScore: String
   }
   input BookingInput {
-   ID: String
+      ID: String
       listingID: String
       bookingDate: String
       size: Int
@@ -75,11 +76,12 @@ type Guide {
   
   type Mutation {
     makeABooking(
-
+      listingId: String
       size: Int,
+      bookingDate: String,
       customerEmail: String,
       customers: [InputCustomer]
-    ): Boolean
+    ): Booking
   
   }
   
