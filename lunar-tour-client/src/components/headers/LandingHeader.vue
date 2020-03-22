@@ -1,6 +1,6 @@
 <template>
   <div class="image text-center">
-    <h1 class="text-white font-display text-5xl">
+    <h1 class="text-white font-display text-5xl pt-44">
       Book Vacations to Different Lunar Destinations
     </h1>
   </div>

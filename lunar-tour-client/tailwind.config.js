@@ -201,7 +201,8 @@ module.exports = {
       "20": "5rem",
       "24": "6rem",
       "32": "8rem",
-      "38": "16rem"
+      "38": "16rem",
+      "44": "20rem"
     },
     margin: {
       auto: "auto",
