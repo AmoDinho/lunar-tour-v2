@@ -50,8 +50,7 @@ module.exports = {
       xl: [{ min: "1500px" }]
     },
     fontFamily: {
-      display: ["Paytone One"],
-      body: ["Poppins"]
+      display: ["Saira"]
     },
     fontSize: {
       xs: ".75rem", // 12px
@@ -148,9 +147,11 @@ module.exports = {
       img: "600px",
       "700": "700px",
       "750": "750px",
-      "800": "800px"
+      "800": "800px",
+      card: "264px"
     },
     height: {
+      card: "364px",
       auto: "auto",
       px: "1px",
       "1": "0.25rem",
@@ -202,7 +203,8 @@ module.exports = {
       "20": "5rem",
       "24": "6rem",
       "32": "8rem",
-      "38": "16rem"
+      "38": "16rem",
+      "44": "20rem"
     },
     margin: {
       auto: "auto",
@@ -239,7 +241,11 @@ module.exports = {
       text: "text",
       move: "move",
       "not-allowed": "not-allowed"
-    }
+    },
+    zIndex: {
+      "100": 100
+    },
+    gridTemplateColumns: {}
   },
   variants: {
     accessibility: ["responsive", "focus"],
@@ -312,12 +318,12 @@ module.exports = {
     function({ addComponents }) {
       const border = {
         ".border-top": {
-          borderTop: "#4ECA5D  8px solid"
+          borderTop: "#F45B69  8px solid"
         }
       };
       const borderBottom = {
         ".border-bottom": {
-          borderBottom: "#4ECA5D  8px solid"
+          borderBottom: "#F45B69  8px solid"
         }
       };
 
