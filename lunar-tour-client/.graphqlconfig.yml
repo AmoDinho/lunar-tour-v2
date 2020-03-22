@@ -1,0 +1,3 @@
+projects:
+  app:
+    schemaPath: ../lunar-tour-api/schema.graphql

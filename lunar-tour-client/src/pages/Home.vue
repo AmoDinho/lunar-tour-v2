@@ -1,26 +1,17 @@
 <template>
   <div>
     <LandingHeader />
-    <ApolloQuery
-      :query="
-        gql => gql`
-          query getAllListings {
-            listingId
-            coverPhoto
-            listingName
-            listingLocation
-            rating
-            price
-          }
-        `
-      "
-    >
+    <ApolloQuery :query="require('../graphql/getAllListings.gql')">
       <template v-slot="{ result: { loading, error, data } }">
         <div v-if="loading">loading...</div>
         <div v-if="error">error...</div>
 
         <div v-else-if="data">
-          <div v-for="listing of data.getAllListings" :key="listing.listingId">
+          <div
+            class="text-red"
+            v-for="listing of data.getAllListings"
+            :key="listing.listingId"
+          >
             {{ listing.listingName }}
           </div>
         </div>
