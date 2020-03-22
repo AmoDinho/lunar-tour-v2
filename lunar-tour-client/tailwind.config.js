@@ -238,6 +238,9 @@ module.exports = {
       text: "text",
       move: "move",
       "not-allowed": "not-allowed"
+    },
+    zIndex: {
+      "100": 100
     }
   },
   variants: {
