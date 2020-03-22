@@ -1,13 +1,15 @@
 <template>
-  <div class=" rounded-lg w-2/5 h-64">
-    <img :src="coverPhoto" class="w-1/2" />
-    <div class="flex flex-row">
-      <p>{{ listingTitle }}</p>
-      <p>{{ listingLocation }}</p>
-    </div>
+  <div class="rounded-px w-card h-card">
+    <img :src="coverPhoto" class="w-full h-48 rounded-t-px" />
+    <div class="flex flex-col p-2">
+      <div class="flex flex-row mt-2 ">
+        <p class="font-display text-base">{{ listingTitle }}</p>
+        <p class="font-display text-sm text-grey">{{ listingLocation }}</p>
+      </div>
 
-    <p>{{ price }}</p>
-    <p>{{ rating }}</p>
+      <p class="font-display text-lg mt-8">${{ price }}</p>
+      <p class="font-display">{{ rating }}</p>
+    </div>
   </div>
 </template>
 <script>

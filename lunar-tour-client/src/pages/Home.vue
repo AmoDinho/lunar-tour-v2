@@ -14,7 +14,7 @@
               :price="listing.price"
               :rating="listing.rating"
               :coverPhoto="listing.coverPhoto"
-              class="mt-4"
+              class="mt-32"
             />
           </div>
         </div>

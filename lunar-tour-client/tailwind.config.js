@@ -147,9 +147,11 @@ module.exports = {
       img: "600px",
       "700": "700px",
       "750": "750px",
-      "800": "800px"
+      "800": "800px",
+      card: "264px"
     },
     height: {
+      card: "364px",
       auto: "auto",
       px: "1px",
       "1": "0.25rem",
