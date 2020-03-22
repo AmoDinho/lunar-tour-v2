@@ -3,8 +3,8 @@
     <LandingHeader />
     <ApolloQuery :query="require('../graphql/getAllListings.gql')">
       <template v-slot="{ result: { loading, error, data } }">
-        <div v-if="loading">loading...</div>
-        <div v-if="error">error...</div>
+        <div v-if="loading" class="text-red">loading...</div>
+        <div v-if="error" class="text-red">error...</div>
 
         <div v-else-if="data" class="grid p-10">
           <div v-for="listing of data.getAllListings" :key="listing.listingId">
