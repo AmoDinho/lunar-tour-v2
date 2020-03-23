@@ -8,14 +8,19 @@
 
         <div v-else-if="data" class="grid p-10">
           <div v-for="listing of data.getAllListings" :key="listing.listingId">
-            <TourCard
-              :listingTitle="listing.listingName"
-              :listingLocation="listing.listingLocation"
-              :price="listing.price"
-              :rating="listing.rating"
-              :coverPhoto="listing.coverPhoto"
-              class="mt-32"
-            />
+            <router-link
+              :to="{ path: 'listing', query: { id: listing.listingId } }"
+              class="no-underline"
+            >
+              <TourCard
+                :listingTitle="listing.listingName"
+                :listingLocation="listing.listingLocation"
+                :price="listing.price"
+                :rating="listing.rating"
+                :coverPhoto="listing.coverPhoto"
+                class="mt-32"
+              />
+            </router-link>
           </div>
         </div>
       </template>
