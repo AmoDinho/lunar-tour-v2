@@ -1,11 +1,15 @@
 import VueRouter from "vue-router";
-
+import Listing from "./pages/Listing";
 import Home from "./pages/Home";
 
 const routes = [
   {
     path: "/",
     component: Home
+  },
+  {
+    path: "/listing",
+    component: Listing
   }
 ];
 
