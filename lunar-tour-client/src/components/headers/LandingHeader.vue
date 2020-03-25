@@ -1,7 +1,10 @@
 <template>
   <div class="image text-center bg-transparent " :style="urlProps">
     <h1 class="text-white font-display text-5xl pt-44">
-      Book Vacations to Different Lunar Destinations
+      <div v-if="text">
+        {{ text }}
+      </div>
+      <div v-else></div>
     </h1>
   </div>
 </template>
@@ -9,11 +12,16 @@
 export default {
   name: "Landing Header",
   props: {
-    imgURL: String
+    imgURL: String,
+    text: String,
+    margin: String
   },
   computed: {
     urlProps() {
       return "--img-url:" + `url(${this.imgURL})`;
+    },
+    marginProps() {
+      return "--margin:" + this.margin;
     }
   }
 };
@@ -23,6 +31,6 @@ export default {
   background: var(--img-url) no-repeat center center;
   background-size: cover;
   height: 570px;
-  margin-top: -85px;
+  margin-top: var(--margin);
 }
 </style>
