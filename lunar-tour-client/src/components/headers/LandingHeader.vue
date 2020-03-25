@@ -19,9 +19,6 @@ export default {
   computed: {
     urlProps() {
       return "--img-url:" + `url(${this.imgURL})`;
-    },
-    marginProps() {
-      return "--margin:" + this.margin;
     }
   }
 };
@@ -31,6 +28,6 @@ export default {
   background: var(--img-url) no-repeat center center;
   background-size: cover;
   height: 570px;
-  margin-top: var(--margin);
+  margin-top: -85px;
 }
 </style>
