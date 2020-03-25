@@ -47,7 +47,17 @@
               </ul>
             </div>
             <div class="">
-              <button></button>
+              <h1 class="font-family text-xl text-black">
+                {{ data.getAListing.price }}
+              </h1>
+
+              <button>Book</button>
+              <h1 class="font-family text-xl text-black">
+                {{ data.getAListing.guide.Name }}
+              </h1>
+              <p class="font-family  text-black">
+                {{ data.getAListing.guide.Bio }}
+              </p>
             </div>
           </div>
         </div>
