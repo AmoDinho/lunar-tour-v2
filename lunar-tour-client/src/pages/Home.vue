@@ -9,7 +9,10 @@
         <div v-else-if="data" class="grid p-10">
           <div v-for="listing of data.getAllListings" :key="listing.listingId">
             <router-link
-              :to="{ path: 'listing', query: { id: listing.listingId } }"
+              :to="{
+                path: `listing/${listing.listingId}`,
+                params: { id: listing.listingId }
+              }"
               class="no-underline"
             >
               <TourCard

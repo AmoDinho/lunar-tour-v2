@@ -1,4 +1,4 @@
-query GetAListing($listingId: String) {
+query GetAListing($listingId: String!) {
   getAListing(listingId: $listingId) {
     coverPhoto
     listingId
