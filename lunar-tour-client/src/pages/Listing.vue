@@ -16,13 +16,18 @@
         <!-- Result -->
         <div v-else-if="data" class="result apollo text-red">
           {{ data.getAListing.listingName }}
+          <LandingHeader :imgURL="data.getAListing.coverPhoto" />
         </div>
       </template>
     </ApolloQuery>
   </div>
 </template>
 <script>
+import LandingHeader from "../components/headers/LandingHeader";
 export default {
-  name: "Listing"
+  name: "Listing",
+  components: {
+    LandingHeader
+  }
 };
 </script>
