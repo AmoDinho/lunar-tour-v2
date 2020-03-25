@@ -15,8 +15,35 @@
 
         <!-- Result -->
         <div v-else-if="data" class="result apollo text-red">
-          {{ data.getAListing.listingName }}
           <LandingHeader :imgURL="data.getAListing.coverPhoto" />
+
+          <div class="grid grid-col-1">
+            <div class="">
+              <h1 class="font-family text-xl text-black">
+                {{ data.getAListing.listingName }}
+              </h1>
+              <h1 class="font-family text-xl text-black">
+                {{ data.getAListing.listingLocation }}
+              </h1>
+              <p class="font-family  text-black">
+                {{ data.getAListing.listingDescription }}
+              </p>
+
+              <h3>Trip ammenities</h3>
+              <ul>
+                <li
+                  v-for="activies in data.getAListing.listingActivities"
+                  :key="activies"
+                >
+                  {{ activies.name }}
+                </li>
+              </ul>
+              <p class="font-family  text-black"></p>
+            </div>
+            <div class="">
+              <button></button>
+            </div>
+          </div>
         </div>
       </template>
     </ApolloQuery>
