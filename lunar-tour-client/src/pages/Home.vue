@@ -10,7 +10,7 @@
         <div v-if="loading" class="text-red">loading...</div>
         <div v-if="error" class="text-red">error...</div>
 
-        <div v-else-if="data" class="grid p-10">
+        <div v-else-if="data" class="grid grid-cols-3 col-gap-56 p-10">
           <div v-for="listing of data.getAllListings" :key="listing.listingId">
             <router-link
               :to="{
@@ -46,8 +46,8 @@ export default {
 };
 </script>
 <style>
-.grid {
+/* .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-}
+} */
 </style>
