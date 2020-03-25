@@ -53,7 +53,7 @@ export default {
     listingTitle: String,
     listingLocation: String,
     price: String,
-    rating: String,
+    rating: Number,
     coverPhoto: String
   }
 };
