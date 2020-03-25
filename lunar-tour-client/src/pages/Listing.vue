@@ -31,6 +31,13 @@
 
               <h3>Trip ammenities</h3>
               <ul>
+                <li v-for="types in data.getAListing.listingType" :key="types">
+                  {{ types.name }}
+                </li>
+              </ul>
+
+              <h3>Activites</h3>
+              <ul>
                 <li
                   v-for="activies in data.getAListing.listingActivities"
                   :key="activies"
@@ -38,7 +45,6 @@
                   {{ activies.name }}
                 </li>
               </ul>
-              <p class="font-family  text-black"></p>
             </div>
             <div class="">
               <button></button>
