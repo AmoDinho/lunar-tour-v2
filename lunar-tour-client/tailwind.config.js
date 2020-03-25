@@ -185,7 +185,8 @@ module.exports = {
       "600": "600px",
       "650": "650px",
       "750": "750px",
-      "800": "800px"
+      "800": "800px",
+      imgHeader: "570px"
     },
     padding: {
       px: "1px",
@@ -222,7 +223,8 @@ module.exports = {
       "16": "4rem",
       "20": "5rem",
       "24": "6rem",
-      "32": "8rem"
+      "32": "8rem",
+      imgHeader: "-85px"
     },
     boxShadow: {
       default: "0px 4px 4px  rgba(0,0,0,0.25)",
@@ -245,7 +247,10 @@ module.exports = {
     zIndex: {
       "100": 100
     },
-    gridTemplateColumns: {}
+    gridTemplateColumns: {},
+    backgroundPosition: {
+      center: "center center"
+    }
   },
   variants: {
     accessibility: ["responsive", "focus"],

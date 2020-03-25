@@ -1,5 +1,5 @@
 <template>
-  <div class="image text-center">
+  <div class="image text-center bg-transparent " :style="urlProps">
     <h1 class="text-white font-display text-5xl pt-44">
       Book Vacations to Different Lunar Destinations
     </h1>
@@ -7,16 +7,22 @@
 </template>
 <script>
 export default {
-  name: "Landing Header"
+  name: "Landing Header",
+  props: {
+    imgURL: String
+  },
+  computed: {
+    urlProps() {
+      return "--img-url:" + `url(${this.imgURL})`;
+    }
+  }
 };
 </script>
 <style>
 .image {
-  background: url(https://moon.nasa.gov/system/resources/detail_files/187_detail_as11-44-6551_orig.jpg)
-    no-repeat center center;
+  background: var(--img-url) no-repeat center center;
   background-size: cover;
   height: 570px;
   margin-top: -85px;
-  background-color: #490d40;
 }
 </style>

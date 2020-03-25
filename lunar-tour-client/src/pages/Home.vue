@@ -1,6 +1,8 @@
 <template>
   <div>
-    <LandingHeader />
+    <LandingHeader
+      imgURL="https://moon.nasa.gov/system/resources/detail_files/187_detail_as11-44-6551_orig.jpg"
+    />
     <ApolloQuery :query="require('../graphql/getAllListings.gql')">
       <template v-slot="{ result: { loading, error, data } }">
         <div v-if="loading" class="text-red">loading...</div>

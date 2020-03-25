@@ -52,8 +52,8 @@ export default {
   props: {
     listingTitle: String,
     listingLocation: String,
-    price: Number,
-    rating: String,
+    price: String,
+    rating: Number,
     coverPhoto: String
   }
 };
