@@ -59,7 +59,7 @@
                 $ {{ data.getAListing.price }}
               </h1>
 
-              <button>Book</button>
+              <RedBlockButton text="Book" />
               <h1 class="font-display text-xl text-black">
                 {{ data.getAListing.guide.Name }}
               </h1>
@@ -75,10 +75,12 @@
 </template>
 <script>
 import LandingHeader from "../components/headers/LandingHeader";
+import RedBlockButton from "../components/buttons/RedBlockButton";
 export default {
   name: "Listing",
   components: {
-    LandingHeader
+    LandingHeader,
+    RedBlockButton
   }
 };
 </script>
