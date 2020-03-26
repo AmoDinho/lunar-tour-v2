@@ -55,15 +55,19 @@
               </div>
             </div>
             <div class="">
-              <h1 class="font-display font-bold text-xl text-black">
+              <h1
+                class="font-display font-bold text-xl text-center mb-5 text-black"
+              >
                 $ {{ data.getAListing.price }}
               </h1>
 
-              <RedBlockButton text="Book" />
-              <h1 class="font-display text-xl text-black">
+              <RedBlockButton text="Book" class="ml-40" />
+              <img :src="data.getAListing.guide.avatar" />
+
+              <h3 class="font-display text-xl  text-center text-black mt-10">
                 {{ data.getAListing.guide.Name }}
-              </h1>
-              <p class="font-display  text-black">
+              </h3>
+              <p class="font-display  text-black mt-5 text-center">
                 {{ data.getAListing.guide.Bio }}
               </p>
             </div>
