@@ -224,6 +224,7 @@ module.exports = {
       "20": "5rem",
       "24": "6rem",
       "32": "8rem",
+      "40": "40%",
       imgHeader: "-85px"
     },
     boxShadow: {
@@ -250,6 +251,7 @@ module.exports = {
     gap: theme => theme("spacing"),
     gridTemplateColumns: {
       none: "none",
+      "0": "1fr 1fr",
       "1": "repeat(1, minmax(0, 1fr))",
       "2": "repeat(2, minmax(0, 1fr))",
       "3": "repeat(auto-fill, minmax(250px, 1fr))",

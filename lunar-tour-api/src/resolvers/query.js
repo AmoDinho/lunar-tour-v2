@@ -26,20 +26,18 @@ export const getAllListings = async (args, context) => {
       rating: i.rating,
       guide: {
         Name: i.guide.name,
-        Bio: i.guide.bio
+        Bio: i.guide.bio,
+        Avatar: i.guide.avatar
       },
       price: i.price,
       numberOfDays: i.numberOfDays
-    }))
-
-
+    }));
 
     // return result;
   } catch (e) {
     return e.message;
   }
 };
-
 
 export const getAListing = async (args, context) => {
   const params = {
@@ -51,7 +49,7 @@ export const getAListing = async (args, context) => {
   };
 
   try {
-    const listing = await dynamoDBLib.call("scan", params)
+    const listing = await dynamoDBLib.call("scan", params);
 
     return {
       listingName: listing.Items[0].listingName,
@@ -75,12 +73,8 @@ export const getAListing = async (args, context) => {
       },
       price: listing.Items[0].price,
       numberOfDays: listing.Items[0].numberOfDays
-    }
-
+    };
+  } catch (e) {
+    return e;
   }
-
-  catch (e) {
-    return e
-  }
-
-}
+};

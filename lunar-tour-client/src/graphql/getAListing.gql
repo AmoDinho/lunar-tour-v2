@@ -16,6 +16,7 @@ query GetAListing($listingId: String!) {
     guide {
       Bio
       Name
+      Avatar
     }
     specialType
   }
