@@ -29,6 +29,7 @@ type Listing {
 type Guide {
   Name: String
   Bio: String
+  Avatar: String
 }
 
   
