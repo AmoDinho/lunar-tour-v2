@@ -55,8 +55,8 @@
               </div>
             </div>
             <div class="">
-              <h1 class="font-display text-xl text-black">
-                {{ data.getAListing.price }}
+              <h1 class="font-display font-bold text-xl text-black">
+                $ {{ data.getAListing.price }}
               </h1>
 
               <button>Book</button>
@@ -86,6 +86,6 @@ export default {
 <style>
 .grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 }
 </style>
