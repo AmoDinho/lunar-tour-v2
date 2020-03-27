@@ -61,7 +61,11 @@
                 $ {{ data.getAListing.price }}
               </h1>
 
-              <RedBlockButton text="Book" class="ml-40" />
+              <RedBlockButton
+                text="Book"
+                class="ml-40"
+                @click.native="forward"
+              />
               <img :src="data.getAListing.guide.avatar" />
 
               <h3 class="font-display text-xl  text-center text-black mt-10">
@@ -85,6 +89,11 @@ export default {
   components: {
     LandingHeader,
     RedBlockButton
+  },
+  methods: {
+    forward() {
+      this.$router.push(`/booking/${this.$route.params.id}`);
+    }
   }
 };
 </script>

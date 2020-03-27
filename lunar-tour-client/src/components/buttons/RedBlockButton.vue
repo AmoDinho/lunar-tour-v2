@@ -1,5 +1,6 @@
 <template>
   <button
+    @click="handleClick"
     class="bg-red-lightest text-red-darkest focus:outline-none font-display rounded-px px-16 py-2 hover:bg-transparent hover:border hover:border-red-darkest"
   >
     <div v-if="isLoading">
@@ -18,6 +19,11 @@ export default {
   props: {
     text: String,
     isLoading: Boolean
+  },
+  methods: {
+    handleClick(evt) {
+      this.$emit("click", evt);
+    }
   }
 };
 </script>
