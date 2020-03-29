@@ -24,7 +24,7 @@
         </div>
         <button @click="next(1)">back</button>
 
-        <button @click="next(3)">Submit</button>
+        <button @click="submitForm">Submit</button>
       </a-tab-pane>
       <a-tab-pane tab="Tab 3" key="3"
         >Page 3
@@ -52,16 +52,24 @@ export default {
       this.activeKey = k.toString();
     },
     addCustomer() {
-      this.customers.push({
+      const o = [...this.customers];
+      o.push({
         customerName: null,
         customerSurname: null
       });
+
+      this.customers.push({ o });
+      console.log(this.customers);
     },
+
     removeCustomer(i) {
       this.customers.splice(i, 1);
     },
     submitForm() {
-      alert(this.customers, this.email, this.number, this.date);
+      console.log(this.customers);
+      alert(
+        `${this.customers[0].customerName}, ${this.email}, ${this.number}, ${this.date}`
+      );
     }
   }
 };
