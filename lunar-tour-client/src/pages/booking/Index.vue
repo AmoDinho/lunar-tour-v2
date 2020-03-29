@@ -3,11 +3,11 @@
     <a-tabs v-model="activeKey">
       <a-tab-pane tab="Tab 1" key="1">
         page 1
-        <input placeholder="date" type="date" />
+        <input placeholder="date" type="date" v-mode="date" />
 
-        <input placeholder="3" type="number" />
+        <input placeholder="3" type="number" v-model="number" />
 
-        <input placeholder="email" type="email" />
+        <input placeholder="email" type="email" v-model="email" />
         <button @click="next(2)">next</button>
       </a-tab-pane>
       <a-tab-pane tab="Tab 2" key="2" class="text-black"
@@ -24,7 +24,7 @@
         </div>
         <button @click="next(1)">back</button>
 
-        <button @click="next(3)">next</button>
+        <button @click="next(3)">Submit</button>
       </a-tab-pane>
       <a-tab-pane tab="Tab 3" key="3"
         >Page 3
@@ -41,14 +41,17 @@ export default {
   data() {
     return {
       activeKey: "1",
-           customers: []
-
+      email: "",
+      number: "",
+      date: "",
+      customers: []
     };
   },
   methods: {
     next(k) {
       this.activeKey = k.toString();
-    }, addCustomer() {
+    },
+    addCustomer() {
       this.customers.push({
         customerName: null,
         customerSurname: null
@@ -56,8 +59,10 @@ export default {
     },
     removeCustomer(i) {
       this.customers.splice(i, 1);
+    },
+    submitForm() {
+      alert(this.customers, this.email, this.number, this.date);
     }
-  }
   }
 };
 </script>
