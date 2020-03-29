@@ -18,6 +18,12 @@
             <input v-model="customer.customerName" />
             <label>customer surname</label>
             <input v-model="customer.customerSurname" />
+            <label>customer country</label>
+            <input v-model="customer.country" />
+            <label>passport number </label>
+            <input v-model="customer.passportNumber" />
+            <label>Physio score </label>
+            <input v-model="customer.physioScore" />
             <button @click="removeCustomer(i)">Remove customer</button>
           </div>
           <button @click="addCustomer">Add another customer</button>
