@@ -6,11 +6,11 @@
         size: parseInt(number),
         customerEmail: email,
         bookingDate: date,
-        listingId: this.$route.params.id,
+        listingID: this.$route.params.id,
         customers: customers
       }"
     >
-      <template v-slot="{ mutate, loading, error, done }">
+      <template v-slot="{ mutate, loading, error }">
         <a-tabs v-model="activeKey">
           <a-tab-pane tab="Tab 1" key="1">
             page 1
@@ -43,7 +43,6 @@
 
             <p v-if="error">An error occurred: {{ error }}</p>
             <p v-if="loading">Busy submitting</p>
-            <p v-if="done">look {{ done }}</p>
 
             <button @click="mutate()">Submit</button>
           </a-tab-pane>

@@ -12,8 +12,8 @@ mutation MAKE_A_BOOKING(
     listingId: $listingId
     customers: $customers
   ) {
-    bookingId
-    listingId
+    ID
+    listingID
     bookingDate
     size
     bookingTotal
