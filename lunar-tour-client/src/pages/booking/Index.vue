@@ -7,7 +7,7 @@
         customerEmail: email,
         bookingDate: date,
         listingId: this.$route.params.id,
-        customers: [customers]
+        customers: customers
       }"
     >
       <template v-slot="{ mutate, loading, error, done }">
@@ -26,9 +26,9 @@
             <div>
               <div v-for="(customer, i) in customers" :key="i">
                 <label>customer name</label>
-                <input v-model="customer.customerName" />
+                <input v-model="customer.name" />
                 <label>customer surname</label>
-                <input v-model="customer.customerSurname" />
+                <input v-model="customer.Surname" />
                 <label>customer country</label>
                 <input v-model="customer.country" />
                 <label>passport number </label>
@@ -77,8 +77,8 @@ export default {
     addCustomer() {
       // const o = [...this.customers];
       this.customers.push({
-        customerName: null,
-        customerSurname: null
+        name: null,
+        Surname: null
       });
 
       // this.customers.push({ o });
