@@ -3,7 +3,7 @@
     <a-tabs v-model="activeKey">
       <a-tab-pane tab="Tab 1" key="1">
         page 1
-        <input placeholder="date" type="date" v-mode="date" />
+        <input placeholder="date" type="date" v-model="date" />
 
         <input placeholder="3" type="number" v-model="number" />
 
@@ -66,7 +66,7 @@ export default {
       this.customers.splice(i, 1);
     },
     submitForm() {
-      console.log(this.customers);
+      console.log(this.date);
       alert(
         `${this.customers[0].customerName}, ${this.email}, ${this.number}, ${this.date}`
       );
