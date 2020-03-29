@@ -3,51 +3,57 @@
     <ApolloMutation
       :mutation="require('../../graphql/makeABooking.gql')"
       :variables="{
-        size: number,
+        size: parseInt(number),
         customerEmail: email,
         bookingDate: date,
         listingId: this.$route.params.id,
-        customers: customers
+        customers: [customers]
       }"
     >
-      <a-tabs v-model="activeKey">
-        <a-tab-pane tab="Tab 1" key="1">
-          page 1
-          <input placeholder="date" type="date" v-model="date" />
+      <template v-slot="{ mutate, loading, error, done }">
+        <a-tabs v-model="activeKey">
+          <a-tab-pane tab="Tab 1" key="1">
+            page 1
+            <input placeholder="date" type="date" v-model="date" />
 
-          <input placeholder="3" type="number" v-model="number" />
+            <input placeholder="3" type="number" v-model="number" />
 
-          <input placeholder="email" type="email" v-model="email" />
-          <button @click="next(2)">next</button>
-        </a-tab-pane>
-        <a-tab-pane tab="Tab 2" key="2" class="text-black"
-          >Page 2
-          <div>
-            <div v-for="(customer, i) in customers" :key="i">
-              <label>customer name</label>
-              <input v-model="customer.customerName" />
-              <label>customer surname</label>
-              <input v-model="customer.customerSurname" />
-              <label>customer country</label>
-              <input v-model="customer.country" />
-              <label>passport number </label>
-              <input v-model="customer.passportNumber" />
-              <label>Physio score </label>
-              <input v-model="customer.physioScore" />
-              <button @click="removeCustomer(i)">Remove customer</button>
+            <input placeholder="email" type="email" v-model="email" />
+            <button @click="next(2)">next</button>
+          </a-tab-pane>
+          <a-tab-pane tab="Tab 2" key="2" class="text-black"
+            >Page 2
+            <div>
+              <div v-for="(customer, i) in customers" :key="i">
+                <label>customer name</label>
+                <input v-model="customer.customerName" />
+                <label>customer surname</label>
+                <input v-model="customer.customerSurname" />
+                <label>customer country</label>
+                <input v-model="customer.country" />
+                <label>passport number </label>
+                <input v-model="customer.passportNumber" />
+                <label>Physio score </label>
+                <input v-model="customer.physioScore" />
+                <button @click="removeCustomer(i)">Remove customer</button>
+              </div>
+              <button @click="addCustomer">Add another customer</button>
             </div>
-            <button @click="addCustomer">Add another customer</button>
-          </div>
-          <button @click="next(1)">back</button>
+            <button @click="next(1)">back</button>
 
-          <button @click="submitForm">Submit</button>
-        </a-tab-pane>
-        <a-tab-pane tab="Tab 3" key="3"
-          >Page 3
+            <p v-if="error">An error occurred: {{ error }}</p>
+            <p v-if="loading">Busy submitting</p>
+            <p v-if="done">look {{ done }}</p>
 
-          <button @click="next(2)">back</button>
-        </a-tab-pane>
-      </a-tabs>
+            <button @click="mutate()">Submit</button>
+          </a-tab-pane>
+          <a-tab-pane tab="Tab 3" key="3"
+            >Page 3
+
+            <button @click="next(2)">back</button>
+          </a-tab-pane>
+        </a-tabs>
+      </template>
     </ApolloMutation>
   </div>
 </template>
@@ -69,14 +75,14 @@ export default {
       this.activeKey = k.toString();
     },
     addCustomer() {
-      const o = [...this.customers];
-      o.push({
+      // const o = [...this.customers];
+      this.customers.push({
         customerName: null,
         customerSurname: null
       });
 
-      this.customers.push({ o });
-      console.log(this.customers);
+      // this.customers.push({ o });
+      // console.log(this.customers);
     },
 
     removeCustomer(i) {
