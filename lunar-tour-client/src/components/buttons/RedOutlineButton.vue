@@ -1,7 +1,7 @@
 <template>
   <button
     @click="handleClick"
-    class="bg-white border border-red-light text-red-darkest focus:outline-none font-display rounded-px px-16 py-2 hover:bg-transparent hover:border hover:border-red-darkest"
+    class="cursor-pointer bg-white border border-red-light text-red-darkest focus:outline-none font-display rounded-px px-16 py-2 hover:bg-transparent hover:border hover:border-red-darkest"
   >
     <div v-if="isLoading">
       <img

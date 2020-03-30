@@ -57,10 +57,11 @@
               <HeadingOne text="Who are you travelling with?" />
 
               <div
-                class="flex flex-row"
+                class="flex flex-row mt-10"
                 v-for="(customer, i) in customers"
                 :key="i"
               >
+                <hr />
                 <div class="flex flex-col mr-5">
                   <BodyOne text="customer name" />
                   <Input
@@ -103,10 +104,9 @@
                   <RemoveButton @click="removeCustomer(i)" />
                 </div>
               </div>
-              <RedBlockButton
-                text="Add another customer"
-                @click="addCustomer"
-              />
+              <div class="mt-5 ">
+                <BlueBlockButton text="Add a customer" @click="addCustomer" />
+              </div>
               <div class="flex flex-row mt-5">
                 <RedBlockButton @click="next(3)" text="Proceed" class="mr-5" />
                 <RedOutlineButton @click="next(1)" text="Back" />
@@ -146,6 +146,8 @@ import Input from "../../components/inputs/Input";
 import RedBlockButton from "../../components/buttons/RedBlockButton";
 import RedOutlineButton from "../../components/buttons/RedOutlineButton";
 import RemoveButton from "../../components/buttons/RemoveButton";
+import BlueBlockButton from "../../components/buttons/BlueBlockButton";
+
 export default {
   name: "Index",
   components: {
@@ -155,7 +157,8 @@ export default {
     Input,
     RedBlockButton,
     RedOutlineButton,
-    RemoveButton
+    RemoveButton,
+    BlueBlockButton
   },
   data() {
     return {
