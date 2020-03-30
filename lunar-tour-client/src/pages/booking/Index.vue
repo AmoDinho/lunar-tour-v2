@@ -121,15 +121,32 @@
             key="3"
             class="text-black flex justify-center"
           >
-            Page 3
+            <div class="flex flex-col p-20 ">
+              <HeadingOne text="Your trip total" />
+              <card
+                class="stripe-card mt-20"
+                id="card"
+                :class="{ complete }"
+                stripe="pk_test_5ThYi0UvX3xwoNdgxxxTxxrG"
+                :options="stripeOptions"
+              />
 
-            <button @click="next(2)">back</button>
+              <p v-if="error">An error occurred: {{ error }}</p>
+              <p v-if="loading">Busy submitting</p>
+              <p v-if="data">look {{ data }}</p>
 
-            <p v-if="error">An error occurred: {{ error }}</p>
-            <p v-if="loading">Busy submitting</p>
-            <p v-if="data">look {{ data }}</p>
-
-            <button @click="mutate()">Submit</button>
+              <div class="flex flex-row mt-20">
+                <RedBlockButton
+                  @click="
+                    pay();
+                    mutate();
+                  "
+                  text="Pay"
+                  class="mr-5"
+                />
+                <RedOutlineButton @click="next(2)" text="Back" />
+              </div>
+            </div>
           </a-tab-pane>
           <!-- TAB THREE END--->
         </a-tabs>
@@ -147,6 +164,7 @@ import RedBlockButton from "../../components/buttons/RedBlockButton";
 import RedOutlineButton from "../../components/buttons/RedOutlineButton";
 import RemoveButton from "../../components/buttons/RemoveButton";
 import BlueBlockButton from "../../components/buttons/BlueBlockButton";
+import { Card, createToken } from "vue-stripe-elements-plus";
 
 export default {
   name: "Index",
@@ -158,7 +176,8 @@ export default {
     RedBlockButton,
     RedOutlineButton,
     RemoveButton,
-    BlueBlockButton
+    BlueBlockButton,
+    Card
   },
   data() {
     return {
@@ -192,6 +211,9 @@ export default {
       alert(
         `${this.customers[0].customerName}, ${this.email}, ${this.number}, ${this.date}`
       );
+    },
+    pay() {
+      createToken().then(data => console.log(data.token));
     }
   }
 };
@@ -199,5 +221,17 @@ export default {
 <style>
 .ant-tabs-bar.ant-tabs-top-bar {
   display: none;
+}
+
+.stripe-card {
+  margin-top: 10px;
+  width: 511px;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  box-shadow: 0px 1px 3px rgba(230, 235, 241, 0.25);
+  border-radius: 4px;
+}
+.stripe-card.complete {
+  border-color: green;
 }
 </style>
