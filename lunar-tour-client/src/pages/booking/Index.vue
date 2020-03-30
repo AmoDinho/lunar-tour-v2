@@ -15,27 +15,27 @@
         <!-- TAB ONE --->
 
         <a-tabs v-model="activeKey">
-          <a-tab-pane tab="Tab 1" key="1">
-            <div class="flex flex-col p-20">
+          <a-tab-pane tab="Tab 1" key="1" class="flex justify-center">
+            <div class="flex flex-col p-20 ">
               <HeadingOne text="Booking for Listing Name" />
 
-              <div>
+              <div class="mt-5">
                 <BodyOne text="Booking date" />
                 <DateInput placeholder="date" type="date" v-model="date" />
               </div>
 
-              <div>
+              <div class="mt-5">
                 <BodyOne text="Number of people" />
                 <Input placeholder="3" type="number" v-model="number" />
               </div>
 
-              <div>
+              <div class="mt-5">
                 <BodyOne text="Email address" />
                 <Input placeholder="email" type="email" v-model="email" />
               </div>
-              <div class>
-                <RedBlockButton @click="next(2)" text="Proceed" />
-                <RedOutlineButton @click="next(2)" text="Cancel" />
+              <div class="flex flex-row mt-5">
+                <RedBlockButton @click="next(2)" text="Proceed" class="mr-5" />
+                <RedOutlineButton @click="$router.push('/')" text="Cancel" />
               </div>
             </div>
           </a-tab-pane>
