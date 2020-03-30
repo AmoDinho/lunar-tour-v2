@@ -11,7 +11,7 @@
         customers: customers
       }"
     >
-      <template v-slot="{ mutate, loading, error, data }">
+      <template v-slot="{ mutate, loading, error }">
         <!-- TAB ONE --->
 
         <a-tabs v-model="activeKey">
@@ -123,6 +123,11 @@
           >
             <div class="flex flex-col p-20 ">
               <HeadingOne text="Your trip total" />
+
+              <BodyOne
+                text="Test using this credit card: 4242 4242 4242 4242, and enter any 5 digits for the zip code"
+              />
+
               <card
                 class="stripe-card mt-20"
                 id="card"
@@ -131,15 +136,16 @@
                 :options="stripeOptions"
               />
 
-              <p v-if="error">An error occurred: {{ error }}</p>
-              <p v-if="loading">Busy submitting</p>
-              <p v-if="data">look {{ data }}</p>
+              <BodyOne v-if="error" :text="error" />
+
+              <BodyOne v-if="loading" text="Busy booking your trip" />
 
               <div class="flex flex-row mt-20">
                 <RedBlockButton
                   @click="
                     pay();
                     mutate();
+                    next(4);
                   "
                   text="Pay"
                   class="mr-5"
@@ -206,7 +212,7 @@ export default {
   },
   data() {
     return {
-      activeKey: "4",
+      activeKey: "1",
       email: "",
       number: "",
       date: "",
