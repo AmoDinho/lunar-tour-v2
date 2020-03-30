@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- mutation --->
     <ApolloMutation
       :mutation="require('../../graphql/makeABooking.gql')"
       :variables="{
@@ -11,13 +12,17 @@
       }"
     >
       <template v-slot="{ mutate, loading, error, data }">
+        <!-- TAB ONE --->
+
         <a-tabs v-model="activeKey">
           <a-tab-pane tab="Tab 1" key="1">
             <div class="flex flex-col">
               <HeadingOne text="Booking for Listing Name" />
 
-              <BodyOne text="Booking date" />
-              <input placeholder="date" type="date" v-model="date" />
+              <div>
+                <BodyOne text="Booking date" />
+                <DateInput placeholder="date" type="date" v-model="date" />
+              </div>
 
               <input placeholder="3" type="number" v-model="number" />
 
@@ -25,6 +30,11 @@
               <button @click="next(2)">next</button>
             </div>
           </a-tab-pane>
+
+          <!-- TAB ONE  END--->
+
+          <!-- TAB TWO --->
+
           <a-tab-pane tab="Tab 2" key="2" class="text-black"
             >Page 2
             <div>
@@ -51,11 +61,15 @@
 
             <button @click="mutate()">Submit</button>
           </a-tab-pane>
+          <!-- TAB TWO  END--->
+          <!-- TAB THREE --->
+
           <a-tab-pane tab="Tab 3" key="3"
             >Page 3
 
             <button @click="next(2)">back</button>
           </a-tab-pane>
+          <!-- TAB THREE END--->
         </a-tabs>
       </template>
     </ApolloMutation>
@@ -65,12 +79,13 @@
 <script>
 import HeadingOne from "../../components/typography/HeadingOne";
 import BodyOne from "../../components/typography/BodyOne";
-
+import DateInput from "../../components/inputs/DateInput";
 export default {
   name: "Index",
   components: {
     HeadingOne,
-    BodyOne
+    BodyOne,
+    DateInput
   },
   data() {
     return {
