@@ -149,6 +149,31 @@
             </div>
           </a-tab-pane>
           <!-- TAB THREE END--->
+          <!-- TAB FOUR --->
+
+          <a-tab-pane
+            tab="Tab 4"
+            key="4"
+            class="text-black flex justify-center"
+          >
+            <div class="flex flex-col p-20 ">
+              <HeadingOne text="Thanks for booking with us" />
+              <img src="../../assets/Vector.svg" class="mt-5" />
+              <BodyOne
+                class="mt-5"
+                text="Your link  to your ticket is in the mail. Keep it safe and we will see you soon"
+              />
+
+              <div class="flex flex-row ml-32 mt-20">
+                <RedBlockButton
+                  @click="$router.push('/')"
+                  text="Book more"
+                  class="mr-5"
+                />
+              </div>
+            </div>
+          </a-tab-pane>
+          <!-- TAB FOUR END--->
         </a-tabs>
       </template>
     </ApolloMutation>
@@ -181,7 +206,7 @@ export default {
   },
   data() {
     return {
-      activeKey: "1",
+      activeKey: "4",
       email: "",
       number: "",
       date: "",
