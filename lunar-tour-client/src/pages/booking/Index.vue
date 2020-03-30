@@ -35,6 +35,7 @@
               </div>
               <div class>
                 <RedBlockButton @click="next(2)" text="Proceed" />
+                <RedOutlineButton @click="next(2)" text="Cancel" />
               </div>
             </div>
           </a-tab-pane>
@@ -93,6 +94,8 @@ import BodyOne from "../../components/typography/BodyOne";
 import DateInput from "../../components/inputs/DateInput";
 import Input from "../../components/inputs/Input";
 import RedBlockButton from "../../components/buttons/RedBlockButton";
+import RedOutlineButton from "../../components/buttons/RedOutlineButton";
+
 export default {
   name: "Index",
   components: {
@@ -100,7 +103,8 @@ export default {
     BodyOne,
     DateInput,
     Input,
-    RedBlockButton
+    RedBlockButton,
+    RedOutlineButton
   },
   data() {
     return {
