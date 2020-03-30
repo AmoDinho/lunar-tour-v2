@@ -4,7 +4,8 @@
     class="bg-white  text-red-darkest focus:outline-none font-display  px-16 py-2 cursor:pointer"
   >
     <div class="flex flex-row">
-      <p class="text-sm font-display text-bold ">Remove</p>
+      <img src="../../assets/remove.svg" />
+      <p class="text-sm font-display text-bold ml-3 ">Remove</p>
     </div>
   </button>
 </template>

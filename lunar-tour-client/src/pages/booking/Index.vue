@@ -100,7 +100,7 @@
                     type="email"
                     v-model="customer.passportNumber"
                   />
-                  <button @click="removeCustomer(i)">Remove customer</button>
+                  <RemoveButton @click="removeCustomer(i)" />
                 </div>
               </div>
               <RedBlockButton
@@ -145,7 +145,7 @@ import DateInput from "../../components/inputs/DateInput";
 import Input from "../../components/inputs/Input";
 import RedBlockButton from "../../components/buttons/RedBlockButton";
 import RedOutlineButton from "../../components/buttons/RedOutlineButton";
-
+import RemoveButton from "../../components/buttons/RemoveButton";
 export default {
   name: "Index",
   components: {
@@ -154,7 +154,8 @@ export default {
     DateInput,
     Input,
     RedBlockButton,
-    RedOutlineButton
+    RedOutlineButton,
+    RemoveButton
   },
   data() {
     return {
