@@ -31,7 +31,11 @@
 
               <div class="mt-5">
                 <BodyOne text="Email address" />
-                <Input placeholder="email" type="email" v-model="email" />
+                <Input
+                  placeholder="doku@corrisant.io"
+                  type="email"
+                  v-model="email"
+                />
               </div>
               <div class="flex flex-row mt-5">
                 <RedBlockButton @click="next(2)" text="Proceed" class="mr-5" />
@@ -44,42 +48,64 @@
 
           <!-- TAB TWO --->
 
-          <a-tab-pane tab="Tab 2" key="2" class="text-black"
-            >Page 2
-            <div>
-              <div v-for="(customer, i) in customers" :key="i">
-                <label>customer name</label>
-                <input v-model="customer.name" />
-                <label>customer surname</label>
-                <input v-model="customer.Surname" />
-                <label>customer country</label>
-                <input v-model="customer.country" />
-                <label>passport number </label>
-                <input v-model="customer.passportNumber" />
-                <label>Physio score </label>
-                <input v-model="customer.physioScore" />
-                <button @click="removeCustomer(i)">Remove customer</button>
+          <a-tab-pane
+            tab="Tab 2"
+            key="2"
+            class="text-black flex justify-center"
+          >
+            <div class="flex flex-col p-20 ">
+              <HeadingOne text="Who are you travelling with?" />
+
+              <div
+                class="flex flex-row"
+                v-for="(customer, i) in customers"
+                :key="i"
+              >
+                <div class="flex flex-col">
+                  <label>customer name</label>
+                  <input v-model="customer.name" />
+                  <label>customer country</label>
+                  <input v-model="customer.country" />
+                  <label>Physio score </label>
+                  <input v-model="customer.physioScore" />
+                </div>
+
+                <div class="flex flex-col">
+                  <label>customer surname</label>
+                  <input v-model="customer.Surname" />
+
+                  <label>passport number </label>
+                  <input v-model="customer.passportNumber" />
+                  <button @click="removeCustomer(i)">Remove customer</button>
+                </div>
               </div>
               <RedBlockButton
                 text="Add another customer"
                 @click="addCustomer"
               />
+              <div class="flex flex-row mt-5">
+                <RedBlockButton @click="next(3)" text="Proceed" class="mr-5" />
+                <RedOutlineButton @click="next(1)" text="Back" />
+              </div>
             </div>
-            <button @click="next(1)">back</button>
+          </a-tab-pane>
+          <!-- TAB TWO  END--->
+          <!-- TAB THREE --->
+
+          <a-tab-pane
+            tab="Tab 3"
+            key="3"
+            class="text-black flex justify-center"
+          >
+            Page 3
+
+            <button @click="next(2)">back</button>
 
             <p v-if="error">An error occurred: {{ error }}</p>
             <p v-if="loading">Busy submitting</p>
             <p v-if="data">look {{ data }}</p>
 
             <button @click="mutate()">Submit</button>
-          </a-tab-pane>
-          <!-- TAB TWO  END--->
-          <!-- TAB THREE --->
-
-          <a-tab-pane tab="Tab 3" key="3"
-            >Page 3
-
-            <button @click="next(2)">back</button>
           </a-tab-pane>
           <!-- TAB THREE END--->
         </a-tabs>
