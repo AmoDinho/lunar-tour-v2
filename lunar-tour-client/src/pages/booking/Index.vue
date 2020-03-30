@@ -61,21 +61,45 @@
                 v-for="(customer, i) in customers"
                 :key="i"
               >
-                <div class="flex flex-col">
-                  <label>customer name</label>
-                  <input v-model="customer.name" />
-                  <label>customer country</label>
-                  <input v-model="customer.country" />
-                  <label>Physio score </label>
-                  <input v-model="customer.physioScore" />
+                <div class="flex flex-col mr-5">
+                  <BodyOne text="customer name" />
+                  <Input
+                    placeholder="doku@corrisant.io"
+                    type="email"
+                    v-model="customer.name"
+                  />
+
+                  <BodyOne text="customer country" />
+                  <Input
+                    placeholder="doku@corrisant.io"
+                    type="email"
+                    v-model="customer.country"
+                  />
+
+                  <BodyOne text="Physio score " />
+                  <Input
+                    placeholder="doku@corrisant.io"
+                    type="email"
+                    v-model="customer.physioScore"
+                  />
                 </div>
 
                 <div class="flex flex-col">
-                  <label>customer surname</label>
-                  <input v-model="customer.Surname" />
+                  <BodyOne text="Customer surname" />
+                  <Input
+                    placeholder="doku@corrisant.io"
+                    type="email"
+                    v-model="customer.Surname"
+                  />
+                  <label> </label>
+                  <input />
 
-                  <label>passport number </label>
-                  <input v-model="customer.passportNumber" />
+                  <BodyOne text="Passport number" />
+                  <Input
+                    placeholder="doku@corrisant.io"
+                    type="email"
+                    v-model="customer.passportNumber"
+                  />
                   <button @click="removeCustomer(i)">Remove customer</button>
                 </div>
               </div>
