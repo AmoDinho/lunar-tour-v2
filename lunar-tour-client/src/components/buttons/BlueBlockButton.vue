@@ -1,7 +1,7 @@
 <template>
   <button
     @click="handleClick"
-    class="cursor-pointer bg-red-lightest text-red-darkest focus:outline-none font-display rounded-px px-16 py-2 hover:bg-transparent hover:border hover:border-red-darkest"
+    class="cursor-pointer bg-blue-lightest text-blue-darkest focus:outline-none font-display rounded-px px-16 py-2 hover:bg-transparent hover:border hover:border-blue-darkest"
   >
     <div v-if="isLoading">
       <img
@@ -15,7 +15,7 @@
 </template>
 <script>
 export default {
-  name: "RedBlockButton",
+  name: "BlueBlockButton",
   props: {
     text: String,
     isLoading: Boolean

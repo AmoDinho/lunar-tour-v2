@@ -1,7 +1,7 @@
 import VueRouter from "vue-router";
 import Listing from "./pages/Listing";
 import Home from "./pages/Home";
-
+import Index from "./pages/booking/Index";
 const routes = [
   {
     path: "/",
@@ -10,6 +10,10 @@ const routes = [
   {
     path: "/listing/:id",
     component: Listing
+  },
+  {
+    path: "/booking/:id",
+    component: Index
   }
 ];
 
