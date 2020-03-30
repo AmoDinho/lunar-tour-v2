@@ -1,11 +1,12 @@
 <template>
   <input
     class="
-    bg-grey-lighter 
+   bg-white 
     rounded-px 
-    py-2
-    px-4 
-    border-gray-500 
+    py-3
+    px-16 
+    border
+    border-grey-light 
     focus:outline-none 
     focus:bg-white"
     type="text"
