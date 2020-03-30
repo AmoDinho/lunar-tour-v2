@@ -1,6 +1,6 @@
 <template>
   <p class="text-sm font-body">
-    {text}
+    {{ text }}
   </p>
 </template>
 <script>

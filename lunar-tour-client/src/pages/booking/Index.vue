@@ -13,13 +13,17 @@
       <template v-slot="{ mutate, loading, error, data }">
         <a-tabs v-model="activeKey">
           <a-tab-pane tab="Tab 1" key="1">
-            page 1
-            <input placeholder="date" type="date" v-model="date" />
+            <div class="flex flex-col">
+              <HeadingOne text="Booking for Listing Name" />
 
-            <input placeholder="3" type="number" v-model="number" />
+              <BodyOne text="Booking date" />
+              <input placeholder="date" type="date" v-model="date" />
 
-            <input placeholder="email" type="email" v-model="email" />
-            <button @click="next(2)">next</button>
+              <input placeholder="3" type="number" v-model="number" />
+
+              <input placeholder="email" type="email" v-model="email" />
+              <button @click="next(2)">next</button>
+            </div>
           </a-tab-pane>
           <a-tab-pane tab="Tab 2" key="2" class="text-black"
             >Page 2
@@ -59,8 +63,15 @@
 </template>
 
 <script>
+import HeadingOne from "../../components/typography/HeadingOne";
+import BodyOne from "../../components/typography/BodyOne";
+
 export default {
   name: "Index",
+  components: {
+    HeadingOne,
+    BodyOne
+  },
   data() {
     return {
       activeKey: "1",
