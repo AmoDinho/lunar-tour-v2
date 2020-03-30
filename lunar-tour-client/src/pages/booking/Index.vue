@@ -16,7 +16,7 @@
 
         <a-tabs v-model="activeKey">
           <a-tab-pane tab="Tab 1" key="1">
-            <div class="flex flex-col">
+            <div class="flex flex-col p-20">
               <HeadingOne text="Booking for Listing Name" />
 
               <div>
@@ -24,10 +24,18 @@
                 <DateInput placeholder="date" type="date" v-model="date" />
               </div>
 
-              <input placeholder="3" type="number" v-model="number" />
+              <div>
+                <BodyOne text="Number of people" />
+                <Input placeholder="3" type="number" v-model="number" />
+              </div>
 
-              <input placeholder="email" type="email" v-model="email" />
-              <button @click="next(2)">next</button>
+              <div>
+                <BodyOne text="Email address" />
+                <Input placeholder="email" type="email" v-model="email" />
+              </div>
+              <div class>
+                <RedBlockButton @click="next(2)" text="Proceed" />
+              </div>
             </div>
           </a-tab-pane>
 
@@ -51,7 +59,10 @@
                 <input v-model="customer.physioScore" />
                 <button @click="removeCustomer(i)">Remove customer</button>
               </div>
-              <button @click="addCustomer">Add another customer</button>
+              <RedBlockButton
+                text="Add another customer"
+                @click="addCustomer"
+              />
             </div>
             <button @click="next(1)">back</button>
 
@@ -80,12 +91,16 @@
 import HeadingOne from "../../components/typography/HeadingOne";
 import BodyOne from "../../components/typography/BodyOne";
 import DateInput from "../../components/inputs/DateInput";
+import Input from "../../components/inputs/Input";
+import RedBlockButton from "../../components/buttons/RedBlockButton";
 export default {
   name: "Index",
   components: {
     HeadingOne,
     BodyOne,
-    DateInput
+    DateInput,
+    Input,
+    RedBlockButton
   },
   data() {
     return {

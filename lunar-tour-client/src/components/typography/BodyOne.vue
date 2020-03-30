@@ -1,5 +1,5 @@
 <template>
-  <p class="text-sm font-body text-black">
+  <p class="text-sm font-display text-bold text-black">
     {{ text }}
   </p>
 </template>
