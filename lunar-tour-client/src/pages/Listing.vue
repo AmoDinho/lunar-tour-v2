@@ -25,6 +25,11 @@
               <h1 class="font-display text-xl text-black mt-4 mb-8">
                 {{ data.getAListing.listingLocation }}
               </h1>
+              <h1
+                class="font-display font-bold text-xl text-center s:text-left mb-5 text-black "
+              >
+                $ {{ data.getAListing.price }}
+              </h1>
               <p class="font-display text-left text-black ">
                 {{ data.getAListing.listingDescription }}
               </p>
@@ -54,26 +59,29 @@
                 <p class="font-display ml-2">{{ activies.name }}</p>
               </div>
             </div>
-            <div class="">
-              <h1
-                class="font-display font-bold text-xl text-center mb-5 text-black"
-              >
-                $ {{ data.getAListing.price }}
-              </h1>
+            <div class="flex flex-col ">
+              <div></div>
 
-              <RedBlockButton
-                text="Book"
-                class="ml-40"
-                @click.native="forward"
-              />
-              <img :src="data.getAListing.guide.Avatar" alt="guide" />
-
-              <h3 class="font-display text-xl  text-center text-black mt-10">
-                {{ data.getAListing.guide.Name }}
-              </h3>
-              <p class="font-display  text-black mt-5 text-center">
-                {{ data.getAListing.guide.Bio }}
-              </p>
+              <div class="flex flex-col w-1/3 ml-10">
+                <RedBlockButton
+                  text="Book"
+                  class="sl:ml-40  text-center s:pr-20 mb-10 mt-10"
+                  @click.native="forward"
+                />
+                <img
+                  :src="data.getAListing.guide.Avatar"
+                  alt="guide"
+                  class="rounded-full "
+                />
+              </div>
+              <div>
+                <h3 class="font-display text-xl  text-center text-black mt-10">
+                  {{ data.getAListing.guide.Name }}
+                </h3>
+                <p class="font-display   text-black mt-5 text-center">
+                  {{ data.getAListing.guide.Bio }}
+                </p>
+              </div>
             </div>
           </div>
         </div>
