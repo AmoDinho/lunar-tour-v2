@@ -66,7 +66,7 @@
                 class="ml-40"
                 @click.native="forward"
               />
-              <img :src="data.getAListing.guide.avatar" />
+              <img :src="data.getAListing.guide.Avatar" alt="guide" />
 
               <h3 class="font-display text-xl  text-center text-black mt-10">
                 {{ data.getAListing.guide.Name }}
