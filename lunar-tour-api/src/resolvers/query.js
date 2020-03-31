@@ -70,7 +70,7 @@ export const getAListing = async (args, context) => {
       guide: {
         Name: listing.Items[0].guide.name,
         Bio: listing.Items[0].guide.bio,
-        Avatar: i.guide.avatar
+        Avatar: listing.Items[0].guide.avatar
       },
       price: listing.Items[0].price,
       numberOfDays: listing.Items[0].numberOfDays
