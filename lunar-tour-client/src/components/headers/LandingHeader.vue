@@ -1,6 +1,6 @@
 <template>
   <div class="image text-center bg-transparent " :style="urlProps">
-    <h1 class="text-white font-display text-5xl pt-44">
+    <h1 class="text-white font-display text-5xl pt-44 s:text-4xl">
       <div v-if="text">
         {{ text }}
       </div>
