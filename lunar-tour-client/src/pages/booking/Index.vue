@@ -10,6 +10,7 @@
         listingId: this.$route.params.id,
         customers: customers
       }"
+      @done="onDone"
     >
       <template v-slot="{ mutate, loading, error }">
         <!-- TAB ONE --->
@@ -133,7 +134,7 @@
               />
 
               <card
-                class="stripe-card mt-20"
+                class="stripe-card mt-20 w-full"
                 id="card"
                 :class="{ complete }"
                 stripe="pk_test_5ThYi0UvX3xwoNdgxxxTxxrG"
@@ -149,7 +150,6 @@
                   @click="
                     pay();
                     mutate();
-                    next(4);
                   "
                   text="Pay"
                   class="mr-5"
@@ -224,6 +224,9 @@ export default {
     };
   },
   methods: {
+    onDone() {
+      this.activeKey = "4";
+    },
     next(k) {
       this.activeKey = k.toString();
     },
@@ -260,7 +263,6 @@ export default {
 
 .stripe-card {
   margin-top: 10px;
-  width: 511px;
   border: 1px solid #ccc;
   padding: 5px 10px;
   box-shadow: 0px 1px 3px rgba(230, 235, 241, 0.25);
