@@ -52,16 +52,12 @@
 
           <!-- TAB TWO --->
 
-          <a-tab-pane
-            tab="Tab 2"
-            key="2"
-            class="text-black flex justify-center"
-          >
+          <a-tab-pane tab="Tab 2" key="2" class="flex justify-center">
             <div class="flex flex-col p-20 ">
               <HeadingOne text="Who are you travelling with?" />
 
               <div
-                class="flex flex-row mt-10"
+                class="flex lg:flex-row s:flex-col mt-10"
                 v-for="(customer, i) in customers"
                 :key="i"
               >
