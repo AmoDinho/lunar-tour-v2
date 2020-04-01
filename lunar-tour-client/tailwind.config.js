@@ -101,6 +101,7 @@ module.exports = {
     ),
     borderRadius: {
       none: "0",
+      img: "10%",
       px: "5px",
       sm: ".125rem",
       default: ".25rem",

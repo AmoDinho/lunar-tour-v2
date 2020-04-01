@@ -60,25 +60,28 @@
               </div>
             </div>
             <div class="flex flex-col ">
-              <div></div>
-
-              <div class="flex flex-col w-1/3 ml-10">
+              <div>
                 <RedBlockButton
                   text="Book"
-                  class="sl:ml-40  text-center s:pr-20 mb-10 mt-10"
+                  class=" text-center s:pr-20 mb-10 mt-10"
                   @click.native="forward"
-                />
-                <img
-                  :src="data.getAListing.guide.Avatar"
-                  alt="guide"
-                  class="rounded-full "
                 />
               </div>
               <div>
-                <h3 class="font-display text-xl  text-center text-black mt-10">
+                <h3 class="font-display text-xl   text-black mt-10 mb-10">
+                  Your guide
+                </h3>
+                <img
+                  :src="data.getAListing.guide.Avatar"
+                  alt="guide"
+                  class="rounded-lg h-48"
+                />
+              </div>
+              <div>
+                <h3 class="font-display text-xl   text-black mt-10">
                   {{ data.getAListing.guide.Name }}
                 </h3>
-                <p class="font-display   text-black mt-5 text-center">
+                <p class="font-display   text-black mt-5 ">
                   {{ data.getAListing.guide.Bio }}
                 </p>
               </div>
