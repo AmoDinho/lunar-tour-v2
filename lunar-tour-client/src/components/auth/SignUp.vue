@@ -32,27 +32,29 @@ export default {
       }
     };
   },
-  components: {
-    HeadingOne,
-    // BodyOne,
-    Input,
-    RedBlockButton
-  },
+
   methods: {
-    signUp: async () => {
-      const { username, password } = this.form;
+    signUp: async form => {
+      console.log(form);
+      const { username, password } = form;
       await Auth.signUp({
         username,
         password
       });
       this.formState = "confirmSignUp";
     },
-    confirmSignUp: async () => {
-      const { username, authCode } = this.form;
+    confirmSignUp: async form => {
+      const { username, authCode } = form;
       await Auth.confirmSignUp(username, authCode);
       this.toggle();
       this.$router.push("/bookings");
     }
+  },
+  components: {
+    HeadingOne,
+    // BodyOne,
+    Input,
+    RedBlockButton
   }
 };
 </script>

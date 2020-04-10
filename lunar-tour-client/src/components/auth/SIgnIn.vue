@@ -6,7 +6,7 @@
     <div>
       <Input placeholder="email" v-model="form.username" />
       <Input placeholder="password" type="password" v-model="form.email" />
-      <RedBlockButton text="Sign Up" @click.native="signIn" />
+      <RedBlockButton text="Sign In" @click.native="signIn" />
     </div>
   </div>
 </template>
