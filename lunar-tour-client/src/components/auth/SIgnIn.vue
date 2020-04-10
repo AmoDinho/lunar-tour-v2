@@ -1,31 +1,25 @@
 <template>
   <div>
     <HeadingOne>
-      {{ formState === "signUp" ? "Sign Up" : "Confirm Sign Up" }}
+      Welcome Back
     </HeadingOne>
-    <div v-if="formState === 'signUp'">
+    <div>
       <Input placeholder="email" v-model="form.username" />
       <Input placeholder="password" type="password" v-model="form.email" />
-      <RedBlockButton text="Sign Up" @click.native="signUp" />
-    </div>
-    <div v-if="formState === 'confirmSignUp'">
-      <Input placeholder="password" type="password" v-model="form.authCode" />
-      <RedBlockButton text="Confirm" @click.native="confirmSignUp" />
+      <RedBlockButton text="Sign Up" @click.native="signIn" />
     </div>
   </div>
 </template>
 <script>
 import { Auth } from "aws-amplify";
+import { AmplifyEventBus } from "aws-amplify-vue";
 import HeadingOne from "../typography/HeadingOne";
-// import BodyOne from "../components/typography/BodyOne";
 import Input from "../inputs/Input";
 import RedBlockButton from "../buttons/RedBlockButton";
 export default {
-  name: "SignUp",
-  props: ["toggle"],
+  name: "SignIn",
   data() {
     return {
-      formState: "signUp",
       form: {
         username: "",
         password: ""
@@ -39,18 +33,13 @@ export default {
     RedBlockButton
   },
   methods: {
-    signUp: async () => {
+    signIn: async () => {
       const { username, password } = this.form;
-      await Auth.signUp({
+      await Auth.signIn({
         username,
         password
       });
-      this.formState = "confirmSignUp";
-    },
-    confirmSignUp: async () => {
-      const { username, authCode } = this.form;
-      await Auth.confirmSignUp(username, authCode);
-      this.toggle();
+      AmplifyEventBus.$emit("authState", "signedIn");
       this.$router.push("/bookings");
     }
   }
