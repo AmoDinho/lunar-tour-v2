@@ -5,3 +5,4 @@ const amplifyConfig = {
     userPoolWebClientId: process.env.USERPOOL_CLIENT_ID
   }
 };
+export default amplifyConfig;
