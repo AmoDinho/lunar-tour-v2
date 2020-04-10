@@ -2,6 +2,8 @@ import VueRouter from "vue-router";
 import Listing from "./pages/Listing";
 import Home from "./pages/Home";
 import Index from "./pages/booking/Index";
+import ViewBookings from "./pages/booking/ViewBookings";
+import Auth from "./pages/Auth";
 const routes = [
   {
     path: "/",
@@ -14,6 +16,15 @@ const routes = [
   {
     path: "/booking/:id",
     component: Index
+  },
+  {
+    path: "/bookings",
+    component: ViewBookings,
+    meta: { requiresAuth: true }
+  },
+  {
+    path: "/auth",
+    component: Auth
   }
 ];
 
