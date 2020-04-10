@@ -1,12 +1,12 @@
 <template>
   <div>
     <HeadingOne>
-      {formState === 'signUp' ? 'Sign Up' : 'Confirm Sign Up'}}
+      {{ formState === "signUp" ? "Sign Up" : "Confirm Sign Up" }}
     </HeadingOne>
     <div>
-      <Input placeholder="email" />
-      <Input placeholder="password" type="password" />
-      <RedBlockButton text="Sign Up" />
+      <Input placeholder="email" v-model="form.username" />
+      <Input placeholder="password" type="password" v-model="form.email" />
+      <RedBlockButton text="Sign Up" @click.native="signUp" />
     </div>
   </div>
 </template>
