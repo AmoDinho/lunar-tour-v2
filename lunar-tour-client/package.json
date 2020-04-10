@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "ant-design-vue": "^1.4.12",
+    "aws-amplify": "^3.0.7",
+    "aws-amplify-vue": "^2.1.1",
     "core-js": "^3.6.4",
     "tailwindcss": "^1.2.0",
     "vue": "^2.6.11",
