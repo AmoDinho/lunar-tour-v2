@@ -5,7 +5,7 @@
     </HeadingOne>
     <div v-if="formState === 'signUp'">
       <Input placeholder="email" v-model="form.username" />
-      <Input placeholder="password" type="password" v-model="form.email" />
+      <Input placeholder="password" type="password" v-model="form.password" />
       <RedBlockButton text="Sign Up" @click.native="signUp" />
     </div>
     <div v-if="formState === 'confirmSignUp'">
@@ -34,17 +34,16 @@ export default {
   },
 
   methods: {
-    signUp: async form => {
-      console.log(form);
-      const { username, password } = form;
+    async signUp() {
+      const { username, password } = this.form;
       await Auth.signUp({
         username,
         password
       });
       this.formState = "confirmSignUp";
     },
-    confirmSignUp: async form => {
-      const { username, authCode } = form;
+    async confirmSignUp() {
+      const { username, authCode } = this.form;
       await Auth.confirmSignUp(username, authCode);
       this.toggle();
       this.$router.push("/bookings");
