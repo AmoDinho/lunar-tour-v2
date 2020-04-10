@@ -3,7 +3,7 @@ import App from "./App.vue";
 import { Progress, Tabs } from "ant-design-vue";
 import Amplify, * as AmplifyModules from "aws-amplify";
 import { AmplifyPlugin } from "aws-amplify-vue";
-import amplifyConfig from "../amplify.config";
+import amplifyConfig from "../amplify.config.js";
 import "ant-design-vue/dist/antd.css";
 import VueRouter from "vue-router";
 import "./assets/css/tailwind.css";
@@ -11,6 +11,7 @@ import { createProvider } from "./vue-apollo";
 Vue.config.productionTip = false;
 import router from "./router";
 
+console.log(amplifyConfig);
 Amplify.configure(amplifyConfig);
 Vue.use(AmplifyPlugin, AmplifyModules);
 Vue.use(VueRouter);
