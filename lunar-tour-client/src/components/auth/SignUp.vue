@@ -1,7 +1,7 @@
 <template>
   <div>
     <HeadingOne>
-      Sign up
+      {formState === 'signUp' ? 'Sign Up' : 'Confirm Sign Up'}}
     </HeadingOne>
     <div>
       <Input placeholder="email" />
@@ -42,6 +42,12 @@ export default {
         password
       });
       this.formState = "confirmSignUp";
+    },
+    confirmSignUp: async () => {
+      const { username, authCode } = this.form;
+      await Auth.confirmSignUp(username, authCode);
+      this.toggle();
+      this.$router.push("/bookings");
     }
   }
 };
