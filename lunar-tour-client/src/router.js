@@ -1,3 +1,4 @@
+import Vue from "vue";
 import VueRouter from "vue-router";
 import Listing from "./pages/Listing";
 import Home from "./pages/Home";
@@ -36,6 +37,7 @@ const router = new VueRouter({
 router.beforeResolve((to, from, next) => {
   if (to.matched.some(record => record.meta.requiresAuth)) {
     let user;
+    console.log(user);
     Vue.prototype.$Amplify.Auth.currentAuthenticatedUser()
       .then(data => {
         if (data && data.signInUserSession) {
@@ -44,8 +46,9 @@ router.beforeResolve((to, from, next) => {
         next();
       })
       .catch(e => {
+        console.log(e);
         next({
-          path: "/bookings"
+          path: "/auth"
         });
       });
   }
