@@ -18,8 +18,9 @@
         <a-tabs v-model="activeKey">
           <a-tab-pane tab="Tab 1" key="1" class="flex justify-center">
             <div class="flex flex-col p-20 ">
-              <HeadingOne text="Booking for Listing Name" />
-
+              <HeadingOne>
+                Booking for Listing Name
+              </HeadingOne>
               <div class="mt-5">
                 <BodyOne text="Booking date" />
                 <DateInput placeholder="date" type="date" v-model="date" />
@@ -55,8 +56,9 @@
 
           <a-tab-pane tab="Tab 2" key="2" class="flex justify-center">
             <div class="flex flex-col p-20 ">
-              <HeadingOne text="Who are you travelling with?" />
-
+              <HeadingOne>
+                Who are you travelling with?Who are you travelling with?
+              </HeadingOne>
               <div
                 class="flex lg:flex-row s:flex-col mt-10"
                 v-for="(customer, i) in customers"
@@ -127,8 +129,9 @@
             class="text-black flex justify-center"
           >
             <div class="flex flex-col p-20 ">
-              <HeadingOne text="Your trip total" />
-
+              <HeadingOne>
+                Your trip total
+              </HeadingOne>
               <BodyOne
                 text="Test using this credit card: 4242 4242 4242 4242, and enter any 5 digits for the zip code"
               />
@@ -167,7 +170,9 @@
             class="text-black flex justify-center"
           >
             <div class="flex flex-col p-20 ">
-              <HeadingOne text="Thanks for booking with us" />
+              <HeadingOne>
+                Thanks for booking with us
+              </HeadingOne>
               <img src="../../assets/Vector.svg" class="mt-5" />
               <BodyOne
                 class="mt-5"
