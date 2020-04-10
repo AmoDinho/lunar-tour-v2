@@ -82,3 +82,6 @@ functions:
 resources:
   - ${file(resources/listing-db.yml)}
   - ${file(resources/bookingDB.yml)}
+    #Cognito
+  - ${file(resources/cognito-user-pool.yml)}
+  - ${file(resources/cognito-identity-pool.yml)}
