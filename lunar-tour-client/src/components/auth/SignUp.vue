@@ -11,23 +11,38 @@
   </div>
 </template>
 <script>
+import { Auth } from "aws-amplify";
 import HeadingOne from "../typography/HeadingOne";
 // import BodyOne from "../components/typography/BodyOne";
 import Input from "../inputs/Input";
 import RedBlockButton from "../buttons/RedBlockButton";
-// import RedOutlineButton from "../components/buttons/RedOutlineButton";
 export default {
   name: "Auth",
+  props: ["toggle"],
+  data() {
+    return {
+      formState: "signUp",
+      form: {
+        username: "",
+        password: ""
+      }
+    };
+  },
   components: {
     HeadingOne,
     // BodyOne,
-    // DateInput,
     Input,
     RedBlockButton
-    // RedOutlineButton,
-    // RemoveButton,
-    // BlueBlockButton,
-    // Card
+  },
+  methods: {
+    signUp: async () => {
+      const { username, password } = this.form;
+      await Auth.signUp({
+        username,
+        password
+      });
+      this.formState = "confirmSignUp";
+    }
   }
 };
 </script>
