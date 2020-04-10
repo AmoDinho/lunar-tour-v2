@@ -1,6 +1,8 @@
 <template>
   <div>
-    <HeadingOne text="Sign up" />
+    <HeadingOne>
+      Sign up
+    </HeadingOne>
   </div>
 </template>
 <script>
