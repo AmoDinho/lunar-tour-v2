@@ -13,17 +13,17 @@
 <script>
 import HeadingOne from "../typography/HeadingOne";
 // import BodyOne from "../components/typography/BodyOne";
-import Input from "../components/inputs/Input";
- import RedBlockButton from "../components/buttons/RedBlockButton";
+import Input from "../inputs/Input";
+import RedBlockButton from "../buttons/RedBlockButton";
 // import RedOutlineButton from "../components/buttons/RedOutlineButton";
 export default {
   name: "Auth",
   components: {
-    HeadingOne
+    HeadingOne,
     // BodyOne,
     // DateInput,
-Input,
-    RedBlockButton,
+    Input,
+    RedBlockButton
     // RedOutlineButton,
     // RemoveButton,
     // BlueBlockButton,
