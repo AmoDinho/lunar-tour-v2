@@ -3,10 +3,14 @@
     <HeadingOne>
       {{ formState === "signUp" ? "Sign Up" : "Confirm Sign Up" }}
     </HeadingOne>
-    <div>
+    <div v-if="formState === 'signUp'">
       <Input placeholder="email" v-model="form.username" />
       <Input placeholder="password" type="password" v-model="form.email" />
       <RedBlockButton text="Sign Up" @click.native="signUp" />
+    </div>
+    <div v-if="formState === 'confirmSignUp'">
+      <Input placeholder="password" type="password" v-model="form.authCode" />
+      <RedBlockButton text="Confirm" @click.native="confirmSignUp" />
     </div>
   </div>
 </template>
