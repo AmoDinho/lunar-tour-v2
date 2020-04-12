@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <div class="flex justify-center">
     <!-- start of sign in form --->
-    <div class="flex flex-col p-20">
-      <HeadingOne>
+    <div class="flex flex-col p-20 shadow-lg rounded w-2/5">
+      <HeadingOne class="text-center">
         {{ formState === "signUp" ? "Sign Up" : "Confirm Sign Up" }}
       </HeadingOne>
-      <div v-if="formState === 'signUp'" class="flex flex-col w-2/5">
+      <div v-if="formState === 'signUp'" class="flex flex-col ">
         <Input
           placeholder="example@luna.io"
           v-model="form.username"
