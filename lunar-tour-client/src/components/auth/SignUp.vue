@@ -45,8 +45,9 @@ export default {
     async confirmSignUp() {
       const { username, authCode } = this.form;
       await Auth.confirmSignUp(username, authCode);
-      this.toggle();
+
       this.$router.push("/bookings");
+      this.toggle();
     }
   },
   components: {

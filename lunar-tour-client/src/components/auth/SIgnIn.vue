@@ -33,7 +33,7 @@ export default {
     RedBlockButton
   },
   methods: {
-    signIn: async () => {
+    async signIn() {
       const { username, password } = this.form;
       await Auth.signIn({
         username,
