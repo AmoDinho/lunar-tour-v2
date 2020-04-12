@@ -1,12 +1,19 @@
 <template>
-  <div>
-    <HeadingOne>
-      Welcome Back
-    </HeadingOne>
-    <div>
-      <Input placeholder="email" v-model="form.username" />
-      <Input placeholder="password" type="password" v-model="form.email" />
-      <RedBlockButton text="Sign In" @click.native="signIn" />
+  <div class="flex justify-center">
+    <div class="flex flex-col p-20 shadow-lg rounded w-2/5">
+      <HeadingOne class="text-center">
+        Welcome Back
+      </HeadingOne>
+      <div class="flex flex-col ">
+        <Input placeholder="email" v-model="form.username" class="mb-5" />
+        <Input
+          placeholder="password"
+          type="password"
+          v-model="form.email"
+          class="mb-5"
+        />
+        <RedBlockButton text="Sign In" @click.native="signIn" />
+      </div>
     </div>
   </div>
 </template>
