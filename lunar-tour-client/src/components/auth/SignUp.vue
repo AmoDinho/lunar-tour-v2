@@ -1,20 +1,40 @@
 <template>
   <div>
+    <!-- start of sign in form --->
     <div class="flex flex-col p-20">
       <HeadingOne>
         {{ formState === "signUp" ? "Sign Up" : "Confirm Sign Up" }}
       </HeadingOne>
-      <div v-if="formState === 'signUp'" class="flex flex-col w-3/5">
-        <Input placeholder="email" v-model="form.username" />
-        <Input placeholder="password" type="password" v-model="form.password" />
+      <div v-if="formState === 'signUp'" class="flex flex-col w-2/5">
+        <Input
+          placeholder="example@luna.io"
+          v-model="form.username"
+          class="mb-5"
+        />
+        <Input
+          placeholder="password"
+          type="password"
+          v-model="form.password"
+          class="mb-5"
+        />
         <RedBlockButton text="Sign Up" @click.native="signUp" />
       </div>
     </div>
+    <!-- End of sign in form --->
 
-    <div v-if="formState === 'confirmSignUp'">
-      <Input placeholder="password" type="password" v-model="form.authCode" />
+    <!-- start of Confirm form --->
+
+    <div v-if="formState === 'confirmSignUp'" class="flex flex-col w-2/5">
+      <Input
+        placeholder="password"
+        type="password"
+        v-model="form.authCode"
+        class="mb-5"
+      />
       <RedBlockButton text="Confirm" @click.native="confirmSignUp" />
     </div>
+
+    <!-- End of Confirm form --->
   </div>
 </template>
 <script>
