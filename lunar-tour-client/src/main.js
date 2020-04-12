@@ -1,6 +1,6 @@
 import Vue from "vue";
 import App from "./App.vue";
-import { Progress, Tabs } from "ant-design-vue";
+import { Progress, Tabs, Skeleton } from "ant-design-vue";
 import Amplify, * as AmplifyModules from "aws-amplify";
 import { AmplifyPlugin } from "aws-amplify-vue";
 import amplifyConfig from "../amplify.config.js";
@@ -16,6 +16,8 @@ Amplify.configure(amplifyConfig);
 Vue.use(AmplifyPlugin, AmplifyModules);
 Vue.use(VueRouter);
 Vue.use(Tabs);
+Vue.use(Skeleton);
+
 Vue.use(Progress);
 
 new Vue({

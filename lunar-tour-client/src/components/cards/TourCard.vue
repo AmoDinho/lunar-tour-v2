@@ -48,7 +48,7 @@
 </template>
 <script>
 export default {
-  name: "Tour Card",
+  name: "TourCard",
   props: {
     listingTitle: String,
     listingLocation: String,

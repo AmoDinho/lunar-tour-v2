@@ -7,7 +7,9 @@
     />
     <ApolloQuery :query="require('../graphql/getAllListings.gql')">
       <template v-slot="{ result: { loading, error, data } }">
-        <div v-if="loading" class="text-red">loading...</div>
+        <div v-if="loading" class="text-red">
+          <a-skeleton active />
+        </div>
         <div v-if="error" class="text-red">error...</div>
 
         <div v-else-if="data" class="grid grid-cols-3 col-gap-32 p-10">

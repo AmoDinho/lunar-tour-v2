@@ -6,7 +6,9 @@
     >
       <template v-slot="{ result: { loading, error, data } }">
         <!-- Loading -->
-        <div v-if="loading" class="loading apollo text-red">Loading...</div>
+        <div v-if="loading" class="loading apollo text-red">
+          <a-skeleton active />
+        </div>
 
         <!-- Error -->
         <div v-else-if="error" class="error apollo text-red">
