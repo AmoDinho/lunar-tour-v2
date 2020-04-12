@@ -1,13 +1,16 @@
 <template>
   <div>
-    <HeadingOne>
-      {{ formState === "signUp" ? "Sign Up" : "Confirm Sign Up" }}
-    </HeadingOne>
-    <div v-if="formState === 'signUp'">
-      <Input placeholder="email" v-model="form.username" />
-      <Input placeholder="password" type="password" v-model="form.password" />
-      <RedBlockButton text="Sign Up" @click.native="signUp" />
+    <div class="flex flex-col p-20">
+      <HeadingOne>
+        {{ formState === "signUp" ? "Sign Up" : "Confirm Sign Up" }}
+      </HeadingOne>
+      <div v-if="formState === 'signUp'" class="flex flex-col w-3/5">
+        <Input placeholder="email" v-model="form.username" />
+        <Input placeholder="password" type="password" v-model="form.password" />
+        <RedBlockButton text="Sign Up" @click.native="signUp" />
+      </div>
     </div>
+
     <div v-if="formState === 'confirmSignUp'">
       <Input placeholder="password" type="password" v-model="form.authCode" />
       <RedBlockButton text="Confirm" @click.native="confirmSignUp" />
