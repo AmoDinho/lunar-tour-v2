@@ -22,17 +22,21 @@
                 Booking for Listing Name
               </HeadingOne>
               <div class="mt-5">
-                <BodyOne text="Booking date" />
+                <BodyOne>
+                  Booking date
+                </BodyOne>
                 <DateInput placeholder="date" type="date" v-model="date" />
               </div>
 
               <div class="mt-5">
-                <BodyOne text="Number of people" />
+                <BodyOne>
+                  Number of people
+                </BodyOne>
                 <Input placeholder="3" type="number" v-model="number" />
               </div>
 
               <div class="mt-5">
-                <BodyOne text="Email address" />
+                <BodyOne> Email address </BodyOne>
                 <Input
                   placeholder="doku@corrisant.io"
                   type="email"
@@ -66,21 +70,24 @@
               >
                 <hr />
                 <div class="flex flex-col mr-5">
-                  <BodyOne text="customer name" />
+                  <BodyOne> customer name </BodyOne>
+
                   <Input
                     placeholder="doku@corrisant.io"
                     type="email"
                     v-model="customer.name"
                   />
 
-                  <BodyOne text="customer country" />
+                  <BodyOne> customer country </BodyOne>
+
                   <Input
                     placeholder="doku@corrisant.io"
                     type="email"
                     v-model="customer.country"
                   />
 
-                  <BodyOne text="Physio score " />
+                  <BodyOne> Physio score </BodyOne>
+
                   <Input
                     placeholder="doku@corrisant.io"
                     type="email"
@@ -89,7 +96,8 @@
                 </div>
 
                 <div class="flex flex-col">
-                  <BodyOne text="Customer surname" />
+                  <BodyOne> Customer surname </BodyOne>
+
                   <Input
                     placeholder="doku@corrisant.io"
                     type="email"
@@ -98,7 +106,8 @@
                   <label> </label>
                   <input />
 
-                  <BodyOne text="Passport number" />
+                  <BodyOne> Passport number </BodyOne>
+
                   <Input
                     placeholder="doku@corrisant.io"
                     type="email"
@@ -132,9 +141,11 @@
               <HeadingOne>
                 Your trip total
               </HeadingOne>
-              <BodyOne
-                text="Test using this credit card: 4242 4242 4242 4242, and enter any 5 digits for the zip code"
-              />
+
+              <BodyOne>
+                Test using this credit card: 4242 4242 4242 4242, and enter any
+                5 digits for the zip code</BodyOne
+              >
 
               <card
                 class="stripe-card mt-20 w-full"
@@ -144,9 +155,9 @@
                 :options="stripeOptions"
               />
 
-              <BodyOne v-if="error" :text="error" />
+              <BodyOne v-if="error"> {{ error }}</BodyOne>
 
-              <BodyOne v-if="loading" text="Busy booking your trip" />
+              <BodyOne v-if="loading"> Busy booking your trip</BodyOne>
 
               <div class="flex flex-row mt-20">
                 <RedBlockButton
@@ -174,10 +185,10 @@
                 Thanks for booking with us
               </HeadingOne>
               <img src="../../assets/Vector.svg" class="mt-5" />
-              <BodyOne
-                class="mt-5"
-                text="Your link  to your ticket is in the mail. Keep it safe and we will see you soon"
-              />
+              <BodyOne class="mt-5"
+                >Your link to your ticket is in the mail. Keep it safe and we
+                will see you soon</BodyOne
+              >
 
               <div class="flex flex-row ml-32 mt-20">
                 <RedBlockButton
