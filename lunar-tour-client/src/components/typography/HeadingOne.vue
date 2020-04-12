@@ -1,5 +1,7 @@
 <template>
-  <p class="text-4xl text-black text-bold font-display">{{ text }}</p>
+  <p class="text-4xl text-black text-bold font-display">
+    <slot> </slot>
+  </p>
 </template>
 <script>
 export default {
