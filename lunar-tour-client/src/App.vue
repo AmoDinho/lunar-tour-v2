@@ -8,19 +8,19 @@
 <script>
 import Nav from "./components/navigation/Nav.vue";
 import { AmplifyEventBus } from "aws-amplify-vue";
-import { Auth } from "aws-amplify-vue";
+import { Auth } from "aws-amplify";
 export default {
   name: "App",
   components: {
-    Nav
+    Nav,
   },
   data() {
     return {
-      signedIn: false
+      signedIn: false,
     };
   },
   beforeCreate() {
-    AmplifyEventBus.$on("authState", info => {
+    AmplifyEventBus.$on("authState", (info) => {
       if (info === "signedIn") {
         this.signedIn = true;
         this.$router.push("/bookings");
@@ -32,11 +32,11 @@ export default {
     });
 
     Auth.currentAuthenticatedUser()
-      .then(user => {
+      .then((user) => {
         this.signedIn = true;
         console.log(user);
       })
       .catch(() => (this.signedIn = false));
-  }
+  },
 };
 </script>

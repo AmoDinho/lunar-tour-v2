@@ -6,7 +6,7 @@ Resources:
       # Generate a name based on the stage
       IdentityPoolName: ${self:custom.stage}_lunarTour_IdentityPool
       # Don't allow unathenticated users
-      AllowUnauthenticatedIdentities: false
+      AllowUnauthenticatedIdentities: true
       # Link to our User Pool
       CognitoIdentityProviders:
         - ClientId:
