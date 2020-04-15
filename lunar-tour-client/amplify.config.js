@@ -1,6 +1,6 @@
 const amplifyConfig = {
   Auth: {
-    authenticationFlowType: "USER_SRP_AUTH",
+    authenticationFlowType: "ADMIN_USER_PASSWORD_AUTH",
     region: "us-east-1",
     identityPoolId: process.env.VUE_APP_IDENTITY_POOL_ID,
     userPoolId: process.env.VUE_APP_USERPOOL_ID,

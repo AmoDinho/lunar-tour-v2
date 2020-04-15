@@ -51,7 +51,7 @@ export default {
         await Auth.signIn({
           username,
           password,
-        });
+        }).then((user) => console.log(user));
         AmplifyEventBus.$emit("authState", "signedIn");
         this.$router.push("/bookings");
       } catch (e) {
