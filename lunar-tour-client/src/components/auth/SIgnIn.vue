@@ -1,6 +1,9 @@
 <template>
   <div class="flex justify-center">
     <div class="flex flex-col p-20 shadow-lg rounded w-2/5">
+      <div v-if="errors" class="text-red">
+        {{ errors }}
+      </div>
       <HeadingOne class="text-center">
         Welcome Back
       </HeadingOne>
@@ -29,26 +32,32 @@ export default {
     return {
       form: {
         username: "",
-        password: ""
-      }
+        password: "",
+      },
+      errors: "",
     };
   },
   components: {
     HeadingOne,
     // BodyOne,
     Input,
-    RedBlockButton
+    RedBlockButton,
   },
   methods: {
     async signIn() {
       const { username, password } = this.form;
-      await Auth.signIn({
-        username,
-        password
-      });
-      AmplifyEventBus.$emit("authState", "signedIn");
-      this.$router.push("/bookings");
-    }
-  }
+
+      try {
+        await Auth.signIn({
+          username,
+          password,
+        });
+        AmplifyEventBus.$emit("authState", "signedIn");
+        this.$router.push("/bookings");
+      } catch (e) {
+        this.errors = e.message;
+      }
+    },
+  },
 };
 </script>
