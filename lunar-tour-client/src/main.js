@@ -11,10 +11,12 @@ import { createProvider } from "./vue-apollo";
 Vue.config.productionTip = false;
 import router from "./router";
 
-console.log(amplifyConfig);
 Amplify.configure(amplifyConfig);
-Vue.use(AmplifyPlugin, AmplifyModules);
+const current = AmplifyModules.Auth.configure();
+console.log(amplifyConfig, current);
+
 Vue.use(VueRouter);
+Vue.use(AmplifyPlugin, AmplifyModules);
 Vue.use(Tabs);
 Vue.use(Skeleton);
 
@@ -23,5 +25,5 @@ Vue.use(Progress);
 new Vue({
   router,
   apolloProvider: createProvider(),
-  render: h => h(App)
+  render: (h) => h(App),
 }).$mount("#app");

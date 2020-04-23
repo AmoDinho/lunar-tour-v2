@@ -47,11 +47,12 @@ export default {
     async signIn() {
       const { username, password } = this.form;
 
+      console.log("pa", password);
       try {
-        await Auth.signIn({
-          username,
-          password,
-        }).then((user) => console.log(user));
+        await Auth.signIn({ username, password })
+          .then((user) => console.log("rrr", user))
+          .catch((e) => console.log("ccc", e));
+
         AmplifyEventBus.$emit("authState", "signedIn");
         this.$router.push("/bookings");
       } catch (e) {
