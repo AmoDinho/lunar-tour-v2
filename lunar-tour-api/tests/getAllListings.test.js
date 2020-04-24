@@ -16,4 +16,12 @@ describe("All Listings", () => {
     const response = await getAListing(args, context);
     expect(response.listingId).toEqual(args.listingId);
   });
+
+  test("shows an error when calling a listing", async () => {
+    const args = { listingId: "1111" };
+    const context = "context";
+
+    const response = await getAListing(args, context);
+    expect(response).toMatch("There is no listing");
+  });
 });
