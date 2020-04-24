@@ -1,18 +1,18 @@
 import { v1 as uuidv1 } from "uuid";
 import stripePackage from "stripe";
 import * as dynamoDBLib from "../../libs/dynamodb-lib";
-import { transport, mailTemp } from "../../libs/mail";
+// import { transport, mailTemp } from "../../libs/mail";
 
 export const makeABooking = async (args, context) => {
   //Get the listing that the user selected
   //from the client
   const getPrices = async () => {
     const params = {
-      TableName: process.env.ListingsDB,
+      TableName: process.env.ListingsDB || "dev-listings",
       KeyConditionExpression: "listingId = :listingId",
       ExpressionAttributeValues: {
-        ":listingId": args.listingId
-      }
+        ":listingId": args.listingId,
+      },
     };
     try {
       const listings = await dynamoDBLib.call("query", params);
@@ -30,13 +30,14 @@ export const makeABooking = async (args, context) => {
   //get the name of the listing
   const listingName = listingObject.listingName;
   //create an instance of the stripe lib
+  console.log(process.env.stripeSecretKey);
   const stripe = stripePackage(process.env.stripeSecretKey);
   //charge the users card
   const stripeResult = await stripe.charges.create({
     source: "tok_visa",
     amount: bookingCharge,
     description: `Charge for booking of listing ${args.listingId}`,
-    currency: "usd"
+    currency: "usd",
   });
 
   //create the booking in the table
@@ -52,8 +53,8 @@ export const makeABooking = async (args, context) => {
       customers: args.customers,
       createdTimestamp: Date.now(),
       chargeReciept: stripeResult.receipt_url,
-      paymentDetails: stripeResult.payment_method_details
-    }
+      paymentDetails: stripeResult.payment_method_details,
+    },
   };
 
   try {
@@ -79,14 +80,14 @@ export const makeABooking = async (args, context) => {
       size: params.Item.size,
       bookingTotal: params.Item.bookingTotal,
       customerEmail: params.Item.customerEmail,
-      customers: params.Item.customers.map(c => ({
+      customers: params.Item.customers.map((c) => ({
         name: c.name,
         Surname: c.Surname,
         country: c.country,
         passportNumber: c.passportNumber,
-        physioScore: c.physioScore
+        physioScore: c.physioScore,
       })),
-      chargeReciept: params.Item.chargeReciept
+      chargeReciept: params.Item.chargeReciept,
     };
   } catch (e) {
     return e;

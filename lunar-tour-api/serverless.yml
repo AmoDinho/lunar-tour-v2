@@ -4,6 +4,7 @@ service: lunar-tour-api-2
 plugins:
   - serverless-webpack
   - serverless-offline
+  - serverless-dotenv-plugin
 
 # serverless-webpack configuration
 # Enable auto-packing of external modules
@@ -32,7 +33,7 @@ provider:
   environment:
     BookingsDB: ${self:custom.BookingsDB}
     ListingsDB: ${self:custom.ListingsDB}
-    stripeSecretKey: ${file(./env.yml):local.STRIPE_SECRET_KEY}
+    stripeSecretKey: ${env:STRIPE_SECRET_KEY}
     POST_MARK_API_KEY: ${file(./env.yml):local.POST_MARK_API_KEY}
 
   iamRoleStatements:
