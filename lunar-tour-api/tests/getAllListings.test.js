@@ -14,7 +14,6 @@ describe("All Listings", () => {
     const context = "context";
 
     const response = await getAListing(args, context);
-
-    console.log(response);
+    expect(response.listingId).toEqual(args.listingId);
   });
 });
