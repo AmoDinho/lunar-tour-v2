@@ -5,7 +5,8 @@ describe("All Listings", () => {
     const context = "context";
 
     const response = await getAllListings(args, context);
-    console.log(response);
+    expect(response[0]).toHaveProperty("listingId");
+    expect(response.length).toBeGreaterThan(1);
   });
 
   test("brings a listing", async () => {
@@ -13,6 +14,7 @@ describe("All Listings", () => {
     const context = "context";
 
     const response = await getAListing(args, context);
+
     console.log(response);
   });
 });
