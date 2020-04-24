@@ -41,7 +41,7 @@ export const getAllListings = async (args, context) => {
 
 export const getAListing = async (args, context) => {
   const params = {
-    TableName: process.env.ListingsDB,
+    TableName: process.env.ListingsDB || "dev-listings",
     FilterExpression: "listingId = :listingId",
     ExpressionAttributeValues: {
       ":listingId": args.listingId,
