@@ -49,7 +49,11 @@ export default {
 
       console.log("pa", password);
       try {
-        await Auth.signIn({ username, password })
+        await Auth.signIn({
+          username,
+          password,
+          clientMetadata: "USER_PASSWORD_AUTH",
+        })
           .then((user) => console.log("rrr", user))
           .catch((e) => console.log("ccc", e));
 
