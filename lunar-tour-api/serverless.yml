@@ -13,6 +13,7 @@ custom:
   region: ${opt:region, self:provider.region}
   ListingsDB: ${self:custom.stage}-listings
   BookingsDB: ${self:custom.stage}-bookings
+  LunarTourDB: ${self:custom.stage}-lunar-tour
   tableThroughputs:
     prod: 1
     default: 1
@@ -30,6 +31,7 @@ provider:
   region: us-east-1
   profile: personalAccount
   environment:
+    LunarTourDB: ${self:custom.LunarTourDB}
     BookingsDB: ${self:custom.BookingsDB}
     ListingsDB: ${self:custom.ListingsDB}
     stripeSecretKey: ${env:STRIPE_SECRET_KEY}
