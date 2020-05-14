@@ -8,6 +8,12 @@ type ListingActivities {
   name: String
 }
 
+type Guide {
+  Name: String
+  Bio: String
+  Avatar: String
+}
+
 type Listing {
      listingId: String
      coverPhoto: String
@@ -26,11 +32,7 @@ type Listing {
   }
   
 
-type Guide {
-  Name: String
-  Bio: String
-  Avatar: String
-}
+
 
   
   type Booking {
