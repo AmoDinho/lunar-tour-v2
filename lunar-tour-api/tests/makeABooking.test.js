@@ -30,5 +30,5 @@ describe("Make a booking", () => {
     console.log(response);
   });
 
-  test("unSuccessfully  able to make a booking", async () => {});
+  test("unsuccessfully  able to make a booking", async () => {});
 });
