@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "apollo-server-lambda": "^2.5.0",
-    "aws-sdk": "2.380.0",
+    "aws-sdk": "2.814.0",
     "babel-runtime": "^6.26.0",
     "graphql": "^14.3.0",
     "postmark": "^2.5.1",
